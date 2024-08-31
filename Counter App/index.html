@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter app</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="overflow-hidden flex justify-center bg-black h-[100vh]">
+        <div class="flex flex-col self-center font-bold">
+            <h1 class="text-white text-center">Increment and Decrement Counter</h1>
+            <div class="self-center flex w-fit gap-7 mt-4 bg-white p-4">
+                <button onclick="decrement()"><i class="fa-solid fa-minus"></i></button>
+                <div class="w-[0.8px] bg-gray-400"></div>
+                <p id="counter">0</p>
+                <div class="w-[0.8px] bg-gray-400"></div>
+                <button onclick="increment()"><i class="fa-solid fa-plus"></i></button>
+            </div>  
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/58a810656e.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
