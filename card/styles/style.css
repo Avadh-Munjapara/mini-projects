@@ -1,0 +1,87 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    
+}
+body{
+    background-color: black;
+    width:100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: "Patua+One", sans-serif;
+    font-weight: 900;
+}
+.main{
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    height: 350px;
+    width: 350px;
+}
+.subdiv{
+    height:100%;
+    width:100%;
+    padding:17px;
+}
+.pic{
+    margin-bottom: 15px;
+    height: 180px;
+    width: 100%;
+}
+.pic img{
+    border-radius: 0.5rem;
+    height: 100%;
+    width: 100%;
+}
+.info p{
+    letter-spacing: -0.1rem;
+    font-size: 1.3rem;
+}
+.info p:last-child{
+    margin-bottom:8px;
+}
+.prices{
+    font-size: 1.1rem;
+    height: 100px;
+    width: 100%;
+    margin-top: 12px;
+}
+.prices p{
+    letter-spacing: -0.1rem;
+    margin-right:1rem;
+    display: inline;
+    padding-top: 0px;
+    width:40%;
+    color: rgba(50, 50, 183, 0.758);
+}
+#prior-value{
+    color: rgba(0, 0, 0, 0.61);
+    text-decoration: line-through;
+}
+.off{
+    display: inline-block;
+    height: 1.9rem;
+    width: 5.5rem;
+    border-radius: 0.5rem;
+    padding:0.45rem;
+    padding-left:0.8rem;
+    padding-bottom: 0rem; 
+    padding-top: 0.1rem;  
+    font-size: 1rem;
+    background-color: rgba(51, 205, 138, 0.97);
+    
+}
+.off p{
+    font-size: 0.89rem;
+    letter-spacing: 0rem;
+    margin:auto;
+    color: white;
+
+}
+#line{
+    width: 75%;
+}
