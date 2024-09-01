@@ -5,64 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Share Modal</title>
     <link rel="stylesheet" href="main.css">
+    <style>
+        .box1{
+            animation: box1ani ease-in 8s infinite;
+            box-shadow: 1px 1px 50px 15px orangered;
+        }
+        @keyframes box1ani {
+            50%{
+                transform: scale(1.05);
+                top:10px;
+                left: 20px;
+            }
+        }
+        .box2{
+            animation: boxani2 ease-in 8s infinite;
+            box-shadow: 1px 1px 50px 15px violet;
+        }
+        @keyframes boxani2 {
+                50%{
+                    transform: scale(1.05);
+                    bottom: 10px;
+                    right: 15px;
+                }
+            }
+    </style>
 </head>
 <body>
-    <div>
-        <div>
-            <div>
-            
-            </div>
-            <div>
+    <div class="overflow-hidden bg-black h-[100vh] flex justify-center items-center">
+        <div class="relative p-20">
 
+            <div class="box1 bg-red-400  absolute top-0 left-12 h-56 w-56 rounded-full" >
+                
             </div>
-            <div>
-                <img src="assets/profile-image.webp" alt="">
-                <h1>Love Babbar</h1>
-                <p>Founder, Code Help</p>
-                <div>
-                    <button>
-                        <i class="fa-solid fa-share"></i>    share My Profile
-                    </button>
-                    <button>
-                        Follow Me
-                    </button>
+            <div class="box2 bg-violet-500 bottom-0 right-0 shadow absolute h-72 w-72 rounded-full">
+    
+            </div>
+            <div class="z-10 text-white bg-white/10 rounded-[20px] relative border-2 border-[#ffffff30] p-14 backdrop-blur">
+                <div class="flex flex-col items-center gap-9">
+                    <img src="assets/profile-image.webp" class="w-40" alt="">
+                    <h1 class="font-bold text-3xl">Love Babbar</h1>
+                    <p class="text-xl font-bold text-[#ffffff85]">Founder, Code Help</p>
+                    <div class="flex gap-4 text-[#ffffff85]">
+                        <button class="border-2 px-4 py-2 rounded-lg">
+                            <i class="fa-solid fa-share"></i>    share My Profile
+                        </button>
+                        <button class="border-2 px-10 py-2 rounded-lg">
+                            Follow Me
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="scale-0 text-white absolute px-5 pt-5 pb-10 flex z-20 flex-col gap-4 bg-black/50 rounded-[20px] border-2 border-[#ffffff85] backdrop-blur">
+            <div class="text-4xl font-bold flex gap-32">
+                <h2>Share My Profile</h2>
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <hr>
+            <h3 class="text-xl">Share this via</h3>
+            <ul class="flex justify-between gap-10 text-3xl mt-2">
+                <li class="border-[1px] border-blue-500 text-blue-500 hover:text-white transition-all duration-500 hover:bg-blue-500 flex justify-center items-center w-16 h-16 rounded-full">
+                    <a href="#" class="">
+                        <i class="icon fa-brands fa-facebook-f w-full "></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class= "border-[1px] border-blue-400 text-blue-400 hover:text-white transition-all duration-500 hover:bg-blue-400 flex justify-center items-center w-16 h-16 rounded-full">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="border-[1px] border-red-400 text-red-400 hover:text-white transition-all duration-500 hover:bg-red-400 flex justify-center items-center w-16 h-16 rounded-full">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="border-[1px] border-green-500 text-green-500 hover:text-white transition-all duration-500 hover:bg-green-500 flex justify-center items-center w-16 h-16 rounded-full">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="border-[1px] border-blue-400 text-blue-400 hover:text-white transition-all duration-500 hover:bg-blue-400 flex justify-center items-center w-16 h-16 rounded-full">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 
-    <div class="scale-0">
-        <h2>Share My Profile</h2>
-        <hr>
-        <h3>Share this via</h3>
-        <ul class="flex">
-            <li>
-                <a href="#">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-brands fa-telegram"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
     <script src="https://kit.fontawesome.com/58a810656e.js" crossorigin="anonymous"></script>
 
 </body> 
