@@ -42,11 +42,11 @@
             </div>
             <div class="z-10 text-white bg-white/10 rounded-[20px] relative border-2 border-[#ffffff30] p-14 backdrop-blur-lg">
                 <div class="flex flex-col items-center gap-9">
-                    <img src="assets/profile-image.webp" class="w-40" alt="">
-                    <h1 class="font-bold text-3xl">Love Babbar</h1>
-                    <p class="text-xl font-bold text-[#ffffff85]">Founder, Code Help</p>
+                    <img src="assets/IMG-20240901-WA0001[1].jpg" class="w-40 rounded-full" alt="">
+                    <h1 class="font-bold text-3xl">Avadh Munjapra</h1>
+                    <p class="text-xl font-bold text-[#ffffff85]">Computer Engineer</p>
                     <div class="flex gap-4 text-[#ffffff85]">
-                        <button class="border-2 flex gap-2 px-4 py-2 rounded-lg hover:bg-[#ffffff85] transition-all duration-300 hover:text-black">
+                        <button onclick="openmodal()" class="border-2 flex gap-2 px-4 py-2 rounded-lg hover:bg-[#ffffff85] transition-all duration-300 hover:text-black">
                             <i class="fa-solid fa-share self-center"></i>  
                               share My Profile
                         </button>
@@ -57,17 +57,17 @@
                 </div>
             </div>
         </div>
-        <div class="scale-0 text-white absolute px-5 pt-5 pb-10 flex z-20 flex-col gap-4 bg-black/50 rounded-[20px] border-2 border-[#ffffff85] backdrop-blur">
-            <div class="text-4xl font-bold flex gap-32">
+        <div class="modal transition-all duration-[600ms] scale-0 text-white absolute px-5 pt-5 pb-10 flex z-20 flex-col gap-4 bg-black/50 rounded-[20px] border-2 border-[#ffffff85] backdrop-blur">
+            <div class="text-4xl font-bold flex justify-between gap-32">
                 <h2>Share My Profile</h2>
-                <i class="fa-solid fa-xmark"></i>
+                <i onclick="closemodal()" class="hover:cursor-pointer close fa-solid fa-xmark"></i>
             </div>
             <hr>
             <h3 class="text-xl">Share this via</h3>
             <ul class="flex justify-between gap-10 text-3xl mt-2">
                 <li class="border-[1px] border-blue-500 text-blue-500 hover:text-white transition-all duration-500 hover:bg-blue-500 flex justify-center items-center w-16 h-16 rounded-full">
                     <a href="#" class="">
-                        <i class="icon fa-brands fa-facebook-f w-full "></i>
+                        <i class="fa-brands fa-facebook-f"></i>
                     </a>
                 </li>
                 <li>
@@ -92,9 +92,10 @@
                 </li>
             </ul>
         </div>
+        <div onclick="closemodal()" class="overlay z-[15] bg-white/20 absolute top-0 bottom-0 left-0 right-0 hidden"></div>
     </div>
-
     <script src="https://kit.fontawesome.com/58a810656e.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 
 </body> 
 </html>
