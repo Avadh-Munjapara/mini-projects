@@ -9,11 +9,11 @@
     <h1>Password Generator</h1>
     <div>
         <div>
-            <input readonly type="text"><button><span></span><img src="assets/copy.svg" alt=""></button>
+            <input readonly type="text" data-pswd><button><span></span><img src="assets/copy.svg" alt=""></button>
         </div>
         <div>
             <h2>Password Length</h2>
-            <p></p>
+            <p data-pswd-ln></p>
             <input type="range" name="password-length" id="password-length" min="1" max="20">
         </div>
         <div>
@@ -23,22 +23,23 @@
             </div>
             <div>
                 <input type="checkbox" name="lowerercase" id="lowercase">
-                <label for="uppercase">Includes Lowercase letters</label>
+                <label for="lowercase">Includes Lowercase letters</label>
             </div>
             <div>
                 <input type="checkbox" name="numbers" id="numbers">
-                <label for="uppercase">Includes Numbers</label>
+                <label for="numbers">Includes Numbers</label>
             </div>
             <div>
                 <input type="checkbox" name="symbols" id="symbols">
-                <label for="uppercase">Includes Symbols</label>
+                <label for="symbols">Includes Symbols</label>
             </div>
         </div>
-        <div>
+        <div data-indicator>
             <p>Strength</p>
             <div></div>
         </div>
-        <button>Genrate Password</button>
+        <button onclick="generate_password()">Generate Password</button>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
