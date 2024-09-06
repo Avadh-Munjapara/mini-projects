@@ -21,52 +21,59 @@
                 height: 100%;
                 background: #BC15F4;
         }
+        .checkmark-color-red {
+    @apply text-red-500;
+  }
     </style>
 </head>
 <body>
-        <div class="overflow-hidden gap-5 bg-gradient-to-l from-[#140024] to-[#5d0977] h-[100vh] p-10 flex flex-col justify-center items-center">
+        <div class="overflow-hidden  bg-gradient-to-l from-[#140024] to-[#5d0977] h-[100vh] p-10 flex flex-col justify-center items-center">
             <!-- heading -->
-            <h1 class="uppercase text-center font-bold text-4xl text-white">Password Generator</h1>
+            <h1 class="uppercase text-center font-bold text-3xl text-white">Password Generator</h1>
             <!-- main-box -->
             <div class="mt-7 flex  flex-col gap-5 text-white">
                 <!-- generate password section -->
-                <div class="flex gap-4 bg-black px-9 py-4 rounded-xl border-b-4 border-violet-400">
-                    <input readonly type="text" placeholder="PASSWORD" data-pswd class=" text-yellow-300 bg-black text-[1.3rem] font-bold">
+                <div class="flex gap-4 bg-[#160628] px-9 py-4 rounded-xl border-b-4 border-[#5d0977]">
+                    <input readonly type="text" placeholder="PASSWORD" data-pswd class=" text-yellow-300 bg-[#160628] text-[1.3rem] font-bold">
                     <button onclick="copy()" class="w-6 relative"><span data-copymsg class="transition-all scale-0 origin-bottom duration-300 text-black absolute bg-white -top-10 p-1 rounded-md left-0"></span><img src="assets/copy.svg" alt=""></button>
                 </div>
                 <!-- password parameters -->
-                <div class="bg-black text-lg flex flex-col gap-4 p-9 rounded-xl border-b-4 border-violet-400">
-                    <div class="flex flex-col gap-3">
+                <div class="bg-[#160628] text-md flex flex-col gap-7 p-9 rounded-xl border-b-4 border-[#5d0977]">
+                    <div class="flex flex-col gap-7">
                         <div class="flex justify-between  font-semibold">          
-                            <h2>Password Length</h2>
+                            <h2 class="text-lg">Password Length</h2>
                             <p class="text-yellow-300" data-pswd-ln></p>
                         </div>
               
-                        <input type="range" class="slider rounded-lg h-[10px]" name="password-length" id="password-length" min="1" max="20">
+                        <input type="range" class="slider bg-[#341C4F] rounded-lg h-[10px]" name="password-length" id="password-length" min="1" max="20">
                     </div>
-                    <div>
-                        <div>
-                            <input class="cursor-pointer" type="checkbox" name="uppercase" id="uppercase">
+                    <div class="flex flex-col gap-3"> 
+                        <div class="flex items-center gap-2">
+                            <input class="cursor-pointer relative appearance-none w-5 h-5 border-[1px] border-cyan-200 checked:before:content-['✔'] 
+                            checked:before:absolute checked:before:-top-2 rounded-md checked:bg-cyan-400" type="checkbox" name="uppercase" id="uppercase">
                             <label class="cursor-pointer" for="uppercase">Includes Uppercase letters</label>
                         </div>
-                        <div>
-                            <input class="cursor-pointer" type="checkbox" name="lowerercase" id="lowercase">
+                        <div class="flex items-center gap-2">
+                            <input class="cursor-pointer relative appearance-none w-5 h-5 border-[1px] border-cyan-200 checked:before:content-['✔'] 
+                            checked:before:absolute checked:before:-top-2 rounded-md checked:bg-cyan-400" type="checkbox" name="uppercase" id="uppercase">
                             <label class="cursor-pointer" for="lowercase">Includes Lowercase letters</label>
                         </div>
-                        <div>
-                            <input class="cursor-pointer" type="checkbox" name="numbers" id="numbers">
+                        <div class="flex items-center gap-2">
+                            <input class="cursor-pointer relative appearance-none w-5 h-5 border-[1px] border-cyan-200 checked:before:content-['✔'] 
+                            checked:before:absolute checked:before:-top-2 rounded-md checked:bg-cyan-400" type="checkbox" name="uppercase" id="uppercase">
                             <label class="cursor-pointer" for="numbers">Includes Numbers</label>
                         </div>
-                        <div>
-                            <input class="cursor-pointer" type="checkbox" name="symbols" id="symbols">
+                        <div class="flex items-center gap-2">
+                            <input class="cursor-pointer relative appearance-none w-5 h-5 border-[1px] border-cyan-200 checked:before:content-['✔'] 
+                            checked:before:absolute checked:before:-top-2 rounded-md checked:bg-cyan-400" type="checkbox" name="uppercase" id="uppercase">
                             <label class="cursor-pointer" for="symbols">Includes Symbols</label>
                         </div>
                     </div>
                     <div class="flex justify-between ">
-                        <p>Strength</p>
+                        <p class="font-bold">Strength</p>
                         <div data-indicator class="h-5 w-5 rounded-full bg-white shadow-[1px_1px_15px_2px_white]"></div>
                     </div>
-                    <button onclick="generate_password()" class="bg-[#BC15F4] border-b-4 border-yellow-300 rounded-xl py-2 px-3">Generate Password</button>
+                    <button onclick="generate_password()" class="bg-[#BC15F4] text-[#FDE047] font-semibold text-[1.1rem] uppercase border-b-4 border-yellow-300 rounded-xl py-3 px-4">Generate Password</button>
                 </div>
             </div>
         </div>
