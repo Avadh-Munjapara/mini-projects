@@ -4,41 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password generator</title>
+    <link rel="stylesheet" href="main.css">
 </head>
-<body>
-    <h1>Password Generator</h1>
-    <div>
-        <div>
-            <input readonly type="text" data-pswd><button><span></span><img src="assets/copy.svg" alt=""></button>
-        </div>
-        <div>
-            <h2>Password Length</h2>
-            <p data-pswd-ln></p>
-            <input type="range" name="password-length" id="password-length" min="1" max="20">
-        </div>
-        <div>
-            <div>
-                <input type="checkbox" name="uppercase" id="uppercase">
-                <label for="uppercase">Includes Uppercase letters</label>
+<body class="h-full">
+    <div class="overflow-hidden gap-5 bg-gradient-to-l from-violet-800 to-violet-400 h-full p-10 flex flex-col items-center">
+
+        <h1 class="uppercase text-center text-4xl text-white">Password Generator</h1>
+        <div class="mt-7 flex flex-col gap-5 text-white">
+            <div class="flex gap-4 bg-black p-5 rounded-xl border-b-4 border-violet-400">
+                <input readonly type="text" placeholder="PASSWORD" data-pswd class="text-yellow-300 bg-black font-bold">
+                <button onclick="copy()" class="w-6 relative"><span data-copymsg class="transition-all scale-0 origin-bottom duration-300 text-black absolute bg-white -top-10 p-1 rounded-md left-0"></span><img src="assets/copy.svg" alt=""></button>
             </div>
-            <div>
-                <input type="checkbox" name="lowerercase" id="lowercase">
-                <label for="lowercase">Includes Lowercase letters</label>
-            </div>
-            <div>
-                <input type="checkbox" name="numbers" id="numbers">
-                <label for="numbers">Includes Numbers</label>
-            </div>
-            <div>
-                <input type="checkbox" name="symbols" id="symbols">
-                <label for="symbols">Includes Symbols</label>
+            <div class="bg-black flex flex-col gap-4 p-5 rounded-xl border-b-4 border-violet-400">
+                <div class="flex flex-col gap-3">
+                    <div class="flex justify-between">          
+                        <h2>Password Length</h2>
+                        <p class="text-yellow-300" data-pswd-ln></p>
+                    </div>
+          
+                    <input type="range" class="slider border-4 border-yellow-300 accent-[#BC15F4]" name="password-length" id="password-length" min="1" max="20">
+                </div>
+                <div>
+                    <div>
+                        <input type="checkbox" name="uppercase" id="uppercase">
+                        <label for="uppercase">Includes Uppercase letters</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="lowerercase" id="lowercase">
+                        <label for="lowercase">Includes Lowercase letters</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="numbers" id="numbers">
+                        <label for="numbers">Includes Numbers</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="symbols" id="symbols">
+                        <label for="symbols">Includes Symbols</label>
+                    </div>
+                </div>
+                <div>
+                    <p>Strength</p>
+                    <div data-indicator class="h-5 w-5 rounded-full "></div>
+                </div>
+                <button onclick="generate_password()" class="bg-[#BC15F4] border-b-4 border-yellow-300 rounded-xl py-2 px-3">Generate Password</button>
             </div>
         </div>
-        <div data-indicator>
-            <p>Strength</p>
-            <div></div>
-        </div>
-        <button onclick="generate_password()">Generate Password</button>
     </div>
     <script src="script.js"></script>
 </body>
