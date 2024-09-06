@@ -29,18 +29,13 @@ function slider(){
 }
 function indicatorlogic(){
     if(checked_count==1 || checked_count==2){
-        indicator.style='background-color=green';
+        indicator.style.cssText="background-color:#FF0000;box-shadow:1px 1px 15px 2px #FF0000;";
     }
-    else if(checked_count==3){
-        indicator.classList.add['bg-orangle-400'];
-    }
-    else if(checked_count==4){
-        indicator.classList.add['bg-red-400'];
+    else if(checked_count==3 || checked_count==4){
+        indicator.style.cssText="background-color:#00FF00;box-shadow:1px 1px 15px 2px #00FF00;";
     }
 }
-function set_indicator(color){
-    indicator.classList.add="bg-[color]";
-}
+
 function check_count(){
     checked_count=0;
     checkboxes.forEach((checkbox)=>{
@@ -73,9 +68,24 @@ function rand(min, max) {
   function get_fun(arr) {
     return arr[rand(0, arr.length)];
   }
-
+function reshuffle(password){
+    let pass=password.split("");
+    let str="";
+    let len=password.length;
+    for(let i=0;i<len;i++){
+        let j=rand(0,len);
+        let temp=pass[j];
+        pass[j]=pass[i];
+        pass[i]=temp;
+    }
+    for(let k=0;k<pass.length;k++){
+        str+=pass[k];
+    }
+    return str;
+}
 function generate_password(){
     checked_count=check_count();
+    indicatorlogic();
     if(checked_count==0)return;
     if(checked_count>parseInt(password_length.value)){
         password_length.value=checked_count;
@@ -102,5 +112,6 @@ function generate_password(){
     while(password.length<password_length.value){
         password+=get_fun(funarr)();
     }
-    pswd.value=password;
+    let pas=reshuffle(password);
+    pswd.value=pas;
 }
