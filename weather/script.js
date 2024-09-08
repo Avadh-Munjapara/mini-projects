@@ -4,9 +4,14 @@ let searchtab=document.querySelector("[data-searchtab]");
 let loading=document.querySelector("[data-loading]");
 let city_text=document.querySelector("[data-city]");
 let country_flag=document.querySelector("[data-country]");
+let windspeed=document.querySelector("[data-windspeed]");
+let humidity=document.querySelector("[data-humidity]");
+let clouds=document.querySelector("[data-clouds]");
+let temp=document.querySelector("[data-temp]");
+let desc=document.querySelector("[data-desc]");
+let wimage=document.querySelector("[data-wimage]");
 let currtab=permissiontab;
 let cords;
-let city;
 let apikey='02dc0eac1830db04da64d6ce795cdb63';
 function unset_tab(tab){
     tab.style.display="none";
@@ -45,7 +50,7 @@ function grant_access(){
     })
 }
 
-async function get_info(){
+async function get_current_info(){
     let response= await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${cords.letti}&lon=${cords.longi}&appid=${apikey}`);
     let result=await response.json();
     let obj={
@@ -55,8 +60,32 @@ async function get_info(){
     return obj;
 }
 
-async function set_values(){
-    let info=await get_info();
-    city_text.textContent=info.city;
+async function get_weather(city) {
+    let response=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`);
+    let result=await response.json();
+    console.log(result);
+}
+
+async function get_current_weather() {
+    let response=await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${cords.letti}&lon=${cords.longi}&appid=${apikey}`);
+    let result=await response.json();
+    console.log(result);
+    return result;    
+}
+
+async function set_values(){;
+    let weather_info
+    let info=await get_current_info();
     country_flag.setAttribute("src",`https://flagsapi.com/${info.country_name}/flat/24.png`);
+    if(currtab==yweathertab){
+        weather_info=await get_current_weather();
+    }
+    let temprature=parseFloat(weather_info.main.temp-273).toFixed(2);
+    desc.textContent=weather_info.weather[0].description;
+    wimage.setAttribute("src",`https://openweathermap.org/img/wn/${weather_info.weather[0].icon}@2x.png`);
+    temp.textContent=temprature+" °C";
+    city_text.textContent=weather_info.name;
+    windspeed.textContent=weather_info.wind.speed+"m/s";
+    humidity.textContent=weather_info.main.humidity+"%";
+    clouds.textContent=weather_info.clouds.all+"%";
 }
