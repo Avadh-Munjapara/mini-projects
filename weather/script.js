@@ -33,6 +33,7 @@ function grant_access(){
         longi:position.coords.longitude,
        };
         unset_tab(permissiontab);
+        currtab=yweathertab;
         set_tab(yweathertab);
     })
 }
