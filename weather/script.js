@@ -11,9 +11,26 @@ let temp=document.querySelector("[data-temp]");
 let desc=document.querySelector("[data-desc]");
 let wimage=document.querySelector("[data-wimage]");
 let search=document.querySelector("[data-search]");
-let currtab=permissiontab;
-let cords;
+let sweather=document.querySelector("[data-swweather]");
+let swsearch=document.querySelector("[data-swseach]");
 let apikey='02dc0eac1830db04da64d6ce795cdb63';
+let currtab;
+if(!sessionStorage.getItem("letti")){
+     currtab=permissiontab;
+     console.log(currtab)
+     set_tab(currtab);
+}
+else{
+    currtab=yweathertab;
+    set_values();
+}
+if(sessionStorage.getItem("letti")){
+    sweather.addEventListener("click",set_values);
+}
+else{
+    sweather.addEventListener("click",set_tab(permissiontab));
+}
+let cords;
 function unset_tab(tab){
     tab.style.display="none";
 }
@@ -21,15 +38,20 @@ function set_tab(tab){
     tab.style.display="flex";
 }
 function switchtab(tab){
-    if(currtab===tab){
+    if(!sessionStorage.getItem("letti") && tab==yweathertab){
+        unset_tab(currtab);
+        unset_tab(yweathertab);
+        unset_tab(searchtab);
+        currtab=permissiontab;
+        set_tab(permissiontab);
+    }
+    else if(currtab===tab){
         return;
     }
-    else if(typeof(cords)=='undefined' && tab==yweathertab){
-        unset_tab(currtab);
-        currtab=permissiontab;
-        set_tab(currtab);
-    }
     else{
+        if(currtab==permissiontab){
+            unset_tab(permissiontab);
+        }
         unset_tab(currtab);
         currtab=tab;
         set_tab(currtab);
@@ -47,6 +69,8 @@ function grant_access(){
        };
        sessionStorage.setItem("letti",position.coords.latitude);
        sessionStorage.setItem("longi",position.coords.longitude);
+       sweather.removeEventListener("click",set_tab(permissiontab));
+       sweather.addEventListener("click",set_values);
        set_values();
     })
 }
@@ -59,7 +83,7 @@ async function get_current_info(){
         country_name:result[0].country,
     }
     return obj;
-}
+}   
 
 async function get_weather(city) {
     let result;
@@ -76,14 +100,24 @@ async function get_current_weather() {
     return result;    
 }
 
-async function set_values(){;
-    let weather_info
+async function set_values(){
+    unset_tab(permissiontab);
+    unset_tab(searchtab);
+    if(!sessionStorage.getItem("letti")){
+        currtab=permissiontab;
+        set_tab(currtab);
+        if(currtab==yweathertab){
+            unset_tab(currtab);
+        }
+        return;
+   }
+    unset_tab(currtab);
+    currtab=loading;
+    set_tab(loading);
+    let weather_info;
     let info=await get_current_info();
     country_flag.setAttribute("src",`https://flagsapi.com/${info.country_name}/flat/24.png`);
-    currtab=yweathertab;
-    if(currtab==yweathertab){
-        weather_info=await get_current_weather();
-    }
+    weather_info=await get_current_weather();
     let temprature=parseFloat(weather_info.main.temp-273).toFixed(2);
     desc.textContent=weather_info.weather[0].description;
     wimage.setAttribute("src",`https://openweathermap.org/img/wn/${weather_info.weather[0].icon}@2x.png`);
@@ -92,11 +126,15 @@ async function set_values(){;
     windspeed.textContent=weather_info.wind.speed+"m/s";
     humidity.textContent=weather_info.main.humidity+"%";
     clouds.textContent=weather_info.clouds.all+"%";
+    console.log(info)
     unset_tab(loading);
+    currtab=yweathertab;
     set_tab(yweathertab);
 }
 
 async function searchweather(){
+    unset_tab(permissiontab);
+    unset_tab(yweathertab);
     set_tab(loading);
     let city=search.value;
     let weather_info=await get_weather(city);
@@ -110,5 +148,6 @@ async function searchweather(){
     humidity.textContent=weather_info.main.humidity+"%";
     clouds.textContent=weather_info.clouds.all+"%";
     unset_tab(loading);
+    currtab=yweathertab;
     set_tab(yweathertab);
 }

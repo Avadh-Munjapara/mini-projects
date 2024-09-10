@@ -17,12 +17,19 @@
                 <button data-swseach onclick="switchtab(searchtab)">Search Weather</button>
             </div>
             <!-- grant access -->
-             <div class="self-center text-center flex flex-col" data-permissiontab>
+             <div class="self-center text-center hidden flex-col" data-permissiontab>
                 <img class="w-24 self-center" src="assets/location.png" alt="">
                 <h2>Grant location Access</h2>
                 <p>Allow access to get weather information</p>
                 <button onclick="grant_access()">Grant Acesss</button>
+                
              </div>
+                  <!-- search weather -->
+                  <div class=" gap-2 self-center hidden" data-searchtab>
+                    <input class="text-black" type="text" name="city" id="city" placeholder="Search for city..." data-search>
+                    <img class="w-8" src="assets/search.png" alt="" onclick="searchweather()">
+                 </div>
+    
             <!-- your weather -->
             <div  class=" flex-col hidden" data-yweathertab>
                 <!-- upper part  -->
@@ -55,12 +62,7 @@
                 </div>
             </div>
 
-            <!-- search weather -->
-             <div class=" gap-2 self-center hidden" data-searchtab>
-                <input class="text-black" type="text" name="city" id="city" placeholder="Search for city..." data-search>
-                <img class="w-8" src="assets/search.png" alt="" onclick="searchweather()">
-             </div>
-
+       
              <!-- loading  -->
               <div class=" flex-col hidden" data-loading>
                 <img class="w-52 self-center" src="assets/loading.gif" alt="">
