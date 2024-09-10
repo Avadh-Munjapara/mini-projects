@@ -15,9 +15,9 @@ let sweather=document.querySelector("[data-swweather]");
 let swsearch=document.querySelector("[data-swseach]");
 let apikey='02dc0eac1830db04da64d6ce795cdb63';
 let currtab;
+sweather.classList.add("bg-[#7A8EA8]");
 if(!sessionStorage.getItem("letti")){
      currtab=permissiontab;
-     console.log(currtab)
      set_tab(currtab);
 }
 else{
@@ -38,6 +38,14 @@ function set_tab(tab){
     tab.style.display="flex";
 }
 function switchtab(tab){
+    if(tab==yweathertab){
+        swsearch.classList.remove("bg-[#7A8EA8]");
+        sweather.classList.add("bg-[#7A8EA8]");
+    }
+    if(tab==searchtab){
+        swsearch.classList.add("bg-[#7A8EA8]");
+        sweather.classList.remove("bg-[#7A8EA8]");
+    }
     if(!sessionStorage.getItem("letti") && tab==yweathertab){
         unset_tab(currtab);
         unset_tab(yweathertab);
@@ -56,6 +64,7 @@ function switchtab(tab){
         currtab=tab;
         set_tab(currtab);
     }
+ 
 }
 
 function grant_access(){

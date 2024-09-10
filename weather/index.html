@@ -7,57 +7,59 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="text-white h-[100vh] overflow-x-hidden overflow-y-auto bg-gradient-to-r from-[#0B231F] to-[#6E78FF]">
+    <div class="text-white h-[100vh] overflow-x-hidden overflow-y-auto bg-gradient-to-t from-[#0079C4] to-[#00434B]">
         <!-- main content -->
-        <div class="mx-auto w-[700px] flex gap-10 flex-col">
-            <h1 class="text-center">weather app</h1>
+        <div class="mx-auto w-[700px] pt-12 pb-12 flex gap-10 flex-col">
+            <h1 class="text-center font-bold text-4xl capitalize">weather app</h1>
             <!-- switch tabs -->
-            <div class="flex justify-around">
-                <button data-swweather onclick="switchtab(yweathertab)">Your Weather</button>
-                <button data-swseach onclick="switchtab(searchtab)">Search Weather</button>
+            <div class="flex justify-around text-md font-semibold">
+                <button data-swweather class=" px-3 py-1 rounded" onclick="switchtab(yweathertab)">Your Weather</button>
+                <button data-swseach class="px-3 py-1 rounded" onclick="switchtab(searchtab)">Search Weather</button>
             </div>
             <!-- grant access -->
-             <div class="self-center text-center hidden flex-col" data-permissiontab>
+             <div class="self-center gap-1 font-semibold text-md text-center hidden flex-col" data-permissiontab>
                 <img class="w-24 self-center" src="assets/location.png" alt="">
                 <h2>Grant location Access</h2>
                 <p>Allow access to get weather information</p>
-                <button onclick="grant_access()">Grant Acesss</button>
-                
+                <button class="bg-[#7A8EA8] mt-2 self-center w-1/2 px-3 py-1 rounded" onclick="grant_access()">Grant Acesss</button>
+
              </div>
                   <!-- search weather -->
-                  <div class=" gap-2 self-center hidden" data-searchtab>
-                    <input class="text-black" type="text" name="city" id="city" placeholder="Search for city..." data-search>
-                    <img class="w-8" src="assets/search.png" alt="" onclick="searchweather()">
-                 </div>
+                  <form action="script.js" class=" gap-2 self-center hidden " data-searchtab>
+                    <input class="text-white font-semibold px-3 py-2 rounded bg-[#7A8EA8]" type="text" name="city" id="city" placeholder="Search for city..." data-search>
+                    <div class="self-center w-9 h-9 bg-[#3F72AF] rounded-full flex justify-center items-center">
+                        <img class="w-5 h-5" src="assets/search.png" alt="" onclick="searchweather()">
+                    </div>
+                </form>
     
             <!-- your weather -->
-            <div  class=" flex-col hidden" data-yweathertab>
+            <div  class=" flex-col hidden text-xl font-semibold gap-5" data-yweathertab>
                 <!-- upper part  -->
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col items-center gap-1">
                     <div class="flex gap-4">
-                        <p data-city></p>
+                        <p class="text-2xl" data-city></p>
                         <img data-country>
                     </div>
                     <p data-desc></p>
                     <img data-wimage>
-                    <p data-temp></p>
+                    <p class="text-4xl" data-temp></p>
                 </div>
                 <!-- cards -->
-                <div class="flex gap-3 self-center">
-                    <div>
-                        <img class="w-12" src="assets/wind.png" alt="">
-                        <p>windspeed</p>
-                        <p data-windspeed=""></p>
+                <div class="grid grid-cols-3 gap-4 self-center">
+                    <div class="bg-[#869FC0] flex flex-col p-4 rounded">
+                        <img class="w-12 self-center" src="assets/wind.png" alt="">
+                        <p class="self-center">windspeed</p>
+                        <p class="self-center text-[0.9rem]" data-windspeed=""></p>
                     </div>
-                    <div>
-                        <img class="w-12" src="assets/humidity.png" alt="">
-                        <p>humidity</p>
-                        <p data-humidity></p>
+                    <div class="bg-[#869FC0] flex flex-col p-4 rounded">
+                        <img class="w-12 self-center" src="assets/humidity.png" alt="">
+                        <p class="self-center">humidity</p>
+                        <p class="self-center text-[0.9rem]" data-humidity></p>
                     </div>
-                    <div>
-                        <img class="w-12" src="assets/cloud.png" alt="">
-                        <p>clouds</p>
-                        <p data-clouds></p>
+                    <div class="bg-[#869FC0] p-4 rounded flex flex-col">
+                            <img class="w-12 self-center" src="assets/cloud.png" alt="">
+                            <p class="self-center">clouds</p>
+                            <p class="self-center text-[0.9rem]" data-clouds></p>
                     </div>
                 </div>
             </div>
