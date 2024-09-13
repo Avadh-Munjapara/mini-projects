@@ -10,22 +10,24 @@
 </head>
 <body> 
     <!-- wrapper -->
-     <div class="">
+     <div class="overflow-x-hidden h-[100vh] font-spacemono box-border bg-backcolor">
         <!-- container -->
-         <div>
+         <div class="w-[730px] mx-auto pt-6">
             <!-- heading -->
-             <div>
-                 <h1>DevDetective</h1>
-                <div>
-                    <p>Dark</p>
-                    <img src="assets/images/moon-icon.svg" alt="">
+             <div class="flex justify-between tracking-[2.5px] text-headcolor">
+                 <h1 class="text-[26px] font-bold">DevDetective</h1>
+                <div class="flex gap-3">
+                    <p class="text-[13px] font-bold">Dark</p>
+                    <img class="w-[20px] h-[20px]" src="assets/images/moon-icon.svg" alt="">
                 </div>
              </div>
              <!-- search -->
-                <form action="">
-                    <img src="assets/images/search-icon.svg" alt="">
-                    <input type="text" name="username" id="username">
-                    <button type="submit">Search</button>
+                <form class="bg-white flex p-3 pl-7 rounded-2xl justify-between" action="">
+                    <div class="flex items-center gap-3">
+                        <img class="w-5 h-5" src="assets/images/search-icon.svg" alt="">
+                        <input type="text" class="w-[400px]" name="username" id="username" placeholder="Enter a GitHub username..." >
+                    </div>
+                    <button type="submit" class="bg-blue-500 px-[28px] py-[14px] rounded-md text-white">Search</button>
                 </form>
                 <!-- user-info -->
                  <div>
