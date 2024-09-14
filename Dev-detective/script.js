@@ -15,6 +15,40 @@ async function get_user(username){
   }
 }
 
+let wrapper=document.querySelector("[data-wrapper]");
+let search=document.querySelector("[data-search]");
+let info=document.querySelector("[data-info]");
+let data=document.querySelector("[data-data]");
+let currmod="light";
+function chmod(){
+  if(currmod=="light"){
+    currmod="dark";
+    wrapper.style.color="white";
+    input.classList.add("bg-[#1E2A47]");
+    input.classList.remove("bg-white");
+    wrapper.classList.remove("bg-backcolr");
+    wrapper.classList.add("bg-[#141D2F]");
+    search.classList.remove("bg-white");
+    search.classList.add("bg-[#1E2A47]");
+    info.classList.remove("bg-white");
+    info.classList.add("bg-[#1E2A47]");
+    data.classList.add("bg-[#1E2A47]");
+  }else{
+    currmod="light";
+    wrapper.style.color="black";
+    input.classList.remove("bg-[#1E2A47]");
+    input.classList.add("bg-white");
+    wrapper.classList.add("bg-backcolr");
+    wrapper.classList.remove("bg-[#141D2F]");
+    search.classList.remove("bg-[#1E2A47]");
+    search.classList.add("bg-white");
+    info.classList.add("bg-white");
+    info.classList.remove("bg-[#1E2A47]");
+    data.classList.remove("bg-[#1E2A47]");
+
+  }
+}
+
 function get_input(){
   let user=input.value;
   return user;
@@ -35,9 +69,7 @@ btn.addEventListener("click",()=>{
 let alert=document.querySelector("[data-alert]");
 
 async function render_info(user){
-  if(input.textContent.length==0){
-    alert.textContent="Please enter a username";
-  }
+
   let avatar=document.querySelector("[data-avatar]");
   let username=document.querySelector("[data-username]");
   let joindate=document.querySelector("[data-joindate]");
