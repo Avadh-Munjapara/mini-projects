@@ -32,8 +32,12 @@ btn.addEventListener("click",()=>{
     let user=get_input();
     if(user.length!=0)  render_info(user);
 });
+let alert=document.querySelector("[data-alert]");
 
 async function render_info(user){
+  if(input.textContent.length==0){
+    alert.textContent="Please enter a username";
+  }
   let avatar=document.querySelector("[data-avatar]");
   let username=document.querySelector("[data-username]");
   let joindate=document.querySelector("[data-joindate]");
@@ -46,7 +50,6 @@ async function render_info(user){
   let website=document.querySelector("[data-website]");
   let twitter=document.querySelector("[data-twitter]");
   let company=document.querySelector("[data-company]");
-  let alert=document.querySelector("[data-alert]");
   let user_data=await get_user(user);
   if(user_data.login){
     alert.textContent="";
@@ -70,4 +73,4 @@ async function render_info(user){
   }
 }
 
-render_info("Avadh-Munjapara");
+render_info("thepranaygupta");

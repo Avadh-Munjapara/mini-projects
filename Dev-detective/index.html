@@ -16,7 +16,7 @@
     <!-- wrapper -->
      <div class="overflow-x-hidden h-[100vh] font-spacemono box-border bg-backcolor">
         <!-- container -->
-         <div class="w-[730px] mx-auto pt-6">
+         <div class="w-[730px] mx-auto pt-6 flex flex-col gap-4">
             <!-- heading -->
              <div class="flex justify-between  text-headcolor">
                  <h1 class="text-[26px] tracking-normal font-bold">DevDetective</h1>
@@ -26,58 +26,60 @@
                 </div>
              </div>
              <!-- search -->
-                <div data-search class="bg-white items-center flex p-3 pl-7 rounded-2xl justify-between">
+                <div data-search class="bg-white items-center flex p-3 pl-7 rounded-2xl justify-between shadow-lg">
                     <div class="flex items-center gap-3">
                         <img class="w-5 h-5" src="assets/images/search-icon.svg" alt="">
-                        <input type="text" class="w-[300px] text-[18px]" name="username" id="username" placeholder="Enter a GitHub username..." >
+                        <input type="text" class="w-[300px] text-[18px] focus:outline-none" name="username" id="username" placeholder="Enter a GitHub username..." >
                     </div>
                     <p data-alert class="text-red-500 font-semibold"></p>
                     <button data-btn class="bg-blue-500 px-[28px] py-[14px] rounded-md text-white">Search</button>
                 </div>
                 <!-- user-info -->
-                 <div class="bg-white w-[730px] ">
-                     <img data-avatar class="w-[117px] h-[117px]">
-                     <div>
-                        <div>
-                            <h2 data-username></h2>
-                            <p data-joindate></p>
+                 <div class="bg-white w-[730px] flex p-8 gap-10 shadow-lg">
+                     <img data-avatar class="w-[117px] rounded-full h-[117px]">
+                     <!-- info container -->
+                     <div class="flex flex-col gap-1">
+                        <div class="flex items-center justify-between">
+                            <h2 class="text-[26px] font-bold" data-username></h2>
+                            <p class="text-fontcolor" data-joindate></p>
                         </div>
-                        <a data-link></a> 
-                        <p data-bio></p>
-                        <div>
+                        <a class="text-blue-500 underline" data-link></a> 
+                        <p class="text-fontcolor mt-3" data-bio></p>
+                        <div class="flex bg-backcolor justify-around py-3 mt-5">
                             <div>
-                                <p>Repos</p>
-                                <p data-repos></p>
+                                <p class="text-headcolor">Repos</p>
+                                <p class="font-semibold text-[22px]" data-repos></p>
                             </div>
                             <div>
-                                <p>Followers</p>
-                                <p data-followers></p>
+                                <p class="text-headcolor">Followers</p>
+                                <p class="font-semibold text-[22px]" data-followers></p>
                             </div>
                             <div>
-                                <p>Following</p>
-                                <p data-following></p>
+                                <p class="text-headcolor">Following</p>
+                                <p class="font-semibold text-[22px]" data-following></p>
                             </div>
                         </div>
+                        <!-- links -->
+                         <div class="grid grid-cols-2 gap-y-4 text-headcolor mt-5">
+                            <div class="flex gap-3">
+                                <img src="assets/images/location-icon.svg" >
+                                <p data-location></p>
+                            </div>
+                            <div class="flex gap-3">
+                                <img src="assets/images/website-icon.svg" >
+                                <p data-website></p>
+                            </div>
+                            <div class="flex gap-3">
+                                <img src="assets/images/twitter-icon.svg" >
+                                <p data-twitter></p>
+                            </div>
+                            <div class="flex gap-3">
+                                <img src="assets/images/company-icon.svg" >
+                                <p data-company></p>
+                            </div>
+                         </div>
                      </div>
-                     <!-- links -->
-                     <div>
-                        <div>
-                            <img src="assets/images/location-icon.svg" >
-                            <p data-location></p>
-                        </div>
-                        <div>
-                            <img src="assets/images/website-icon.svg" >
-                            <p data-website></p>
-                        </div>
-                        <div>
-                            <img src="assets/images/twitter-icon.svg" >
-                            <p data-twitter></p>
-                        </div>
-                        <div>
-                            <img src="assets/images/company-icon.svg" >
-                            <p data-company></p>
-                        </div>
-                     </div>
+                     
                  </div>
          </div>
      </div>
