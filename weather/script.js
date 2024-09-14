@@ -125,11 +125,11 @@ async function set_values(){
     set_tab(loading);
     let weather_info;
     let info=await get_current_info();
-    country_flag.setAttribute("src",`https://flagsapi.com/${info.country_name}/flat/24.png`);
+    country_flag.setAttribute("src",`https://flagsapi.com/${info?.country_name}/flat/24.png`);
     weather_info=await get_current_weather();
     let temprature=parseFloat(weather_info.main.temp-273).toFixed(2);
     desc.textContent=weather_info.weather[0].description;
-    wimage.setAttribute("src",`https://openweathermap.org/img/wn/${weather_info.weather[0].icon}@2x.png`);
+    wimage.setAttribute("src",`https://openweathermap.org/img/wn/${weather_info?.weather[0]?.icon}@2x.png`);
     temp.textContent=temprature+" °C";
     city_text.textContent=weather_info.name;
     windspeed.textContent=weather_info.wind.speed+"m/s";
@@ -147,10 +147,10 @@ async function searchweather(){
     set_tab(loading);
     let city=search.value;
     let weather_info=await get_weather(city);
-    country_flag.setAttribute("src",`https://flagsapi.com/${weather_info.sys.country}/flat/24.png`);
+    country_flag.setAttribute("src",`https://flagsapi.com/${weather_info?.sys?.country}/flat/24.png`);
     let temprature=parseFloat(weather_info.main.temp-273).toFixed(2);
     desc.textContent=weather_info.weather[0].description;
-    wimage.setAttribute("src",`https://openweathermap.org/img/wn/${weather_info.weather[0].icon}@2x.png`);
+    wimage.setAttribute("src",`https://openweathermap.org/img/wn/${weather_info?.weather[0]?.icon}@2x.png`);
     temp.textContent=temprature+" °C";
     city_text.textContent=weather_info.name;
     windspeed.textContent=weather_info.wind.speed+"m/s";

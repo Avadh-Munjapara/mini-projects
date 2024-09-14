@@ -6,75 +6,81 @@
     <title>Dev Detective</title>
     <link rel="shortcut icon" href="" type="image/x-icon">
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700">
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"></head>
+    <script type="module">
+        import { Octokit } from "https://esm.sh/@octokit/core";
+      </script>
 <body> 
     <!-- wrapper -->
      <div class="overflow-x-hidden h-[100vh] font-spacemono box-border bg-backcolor">
         <!-- container -->
          <div class="w-[730px] mx-auto pt-6">
             <!-- heading -->
-             <div class="flex justify-between tracking-[2.5px] text-headcolor">
-                 <h1 class="text-[26px] font-bold">DevDetective</h1>
+             <div class="flex justify-between  text-headcolor">
+                 <h1 class="text-[26px] tracking-normal font-bold">DevDetective</h1>
                 <div class="flex gap-3">
-                    <p class="text-[13px] font-bold">Dark</p>
+                    <p class="text-[13px] tracking-[2.5px] font-bold">Dark</p>
                     <img class="w-[20px] h-[20px]" src="assets/images/moon-icon.svg" alt="">
                 </div>
              </div>
              <!-- search -->
-                <form class="bg-white flex p-3 pl-7 rounded-2xl justify-between" action="">
+                <div data-search class="bg-white items-center flex p-3 pl-7 rounded-2xl justify-between">
                     <div class="flex items-center gap-3">
                         <img class="w-5 h-5" src="assets/images/search-icon.svg" alt="">
-                        <input type="text" class="w-[400px]" name="username" id="username" placeholder="Enter a GitHub username..." >
+                        <input type="text" class="w-[300px] text-[18px]" name="username" id="username" placeholder="Enter a GitHub username..." >
                     </div>
-                    <button type="submit" class="bg-blue-500 px-[28px] py-[14px] rounded-md text-white">Search</button>
-                </form>
+                    <p data-alert class="text-red-500 font-semibold"></p>
+                    <button data-btn class="bg-blue-500 px-[28px] py-[14px] rounded-md text-white">Search</button>
+                </div>
                 <!-- user-info -->
-                 <div>
-                     <img src="" alt="">
+                 <div class="bg-white w-[730px] ">
+                     <img data-avatar class="w-[117px] h-[117px]">
                      <div>
                         <div>
-                            <h2></h2>
-                            <p></p>
+                            <h2 data-username></h2>
+                            <p data-joindate></p>
                         </div>
-                        <a href=""></a> 
-                        <p></p>
+                        <a data-link></a> 
+                        <p data-bio></p>
                         <div>
                             <div>
                                 <p>Repos</p>
-                                <p></p>
+                                <p data-repos></p>
                             </div>
                             <div>
                                 <p>Followers</p>
-                                <p></p>
+                                <p data-followers></p>
                             </div>
                             <div>
                                 <p>Following</p>
-                                <p></p>
+                                <p data-following></p>
                             </div>
                         </div>
                      </div>
                      <!-- links -->
                      <div>
                         <div>
-                            <img src="assets/images/location-icon.svg" alt="">
-                            <p></p>
+                            <img src="assets/images/location-icon.svg" >
+                            <p data-location></p>
                         </div>
                         <div>
-                            <img src="assets/images/website-icon.svg" alt="">
-                            <p></p>
+                            <img src="assets/images/website-icon.svg" >
+                            <p data-website></p>
                         </div>
                         <div>
-                            <img src="assets/images/twitter-icon.svg" alt="">
-                            <p></p>
+                            <img src="assets/images/twitter-icon.svg" >
+                            <p data-twitter></p>
                         </div>
                         <div>
-                            <img src="assets/images/company-icon.svg" alt="">
-                            <p></p>
+                            <img src="assets/images/company-icon.svg" >
+                            <p data-company></p>
                         </div>
                      </div>
                  </div>
          </div>
      </div>
+     <script src="script.js"></script>
 </body>
 </html>
