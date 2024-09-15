@@ -27,7 +27,7 @@
                 </div>
              </div>
              <!-- search -->
-                <div data-search class=" bg-contback items-center flex p-3 pl-7 rounded-2xl justify-between shadow-lg">
+                <div data-search class=" bg-contback items-center flex p-3 pl-7 rounded-2xl justify-between shadow-shadow">
                     <div class="flex items-center gap-3">
                         <img class="w-5 h-5" src="assets/images/search-icon.svg" alt="">
                         <input type="text" class="w-[300px] text-[18px] bg-contback focus:outline-none" name="username" id="username" placeholder="Enter a GitHub username..." >
@@ -36,17 +36,17 @@
                     <button data-btn class="bg-blue-500 hover:bg-blue-300 px-[28px] py-[14px] rounded-md text-white">Search</button>
                 </div>
                 <!-- user-info -->
-                 <div data-info class="bg-contback w-[730px] flex p-8 gap-10 shadow-lg">
+                 <div data-info class="bg-contback w-[730px] rounded-2xl flex p-10 gap-10  shadow-shadow">
                      <img data-avatar class="w-[117px] rounded-full h-[117px]">
                      <!-- info container -->
-                     <div class="flex flex-col gap-1">
+                     <div class="flex flex-col pr-10 pl-6 gap-1">
                         <div class="flex items-center justify-between">
                             <h2 class="text-[26px] font-bold" data-username></h2>
                             <p class="text-fontcolor" data-joindate></p>
                         </div>
                         <a class="text-blue-500 underline" data-link></a> 
-                        <p class="text-fontcolor mt-3" data-bio></p>
-                        <div data-data  class="flex bg-backcolor justify-around py-3 mt-5">
+                        <p class="text-fontcolor mt-3 text-sm" data-bio></p>
+                        <div data-data  class="flex bg-backcolor justify-around py-3 mt-7 rounded-lg">
                             <div>
                                 <p class="text-headcolor">Repos</p>
                                 <p class="font-semibold text-[22px]" data-repos></p>
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <!-- links -->
-                         <div class="grid grid-cols-2 gap-y-4 text-headcolor mt-5">
+                         <div class="grid grid-cols-2 gap-y-4 text-headcolor mt-8 text-sm">
                             <div class="flex gap-3">
                                 <img class="filter brightness-bright" src="assets/images/location-icon.svg" >
                                 <p data-location></p>

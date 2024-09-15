@@ -13,6 +13,9 @@ module.exports = {
       brightness:{
         bright:"var(--bright)",   
       },
+      boxShadow:{
+        shadow:"var(--shadow)",
+      },
       fontFamily:{
         spacemono: ["Space Mono", "monospace"]
       }
