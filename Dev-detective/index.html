@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"></head>
+
     <script type="module">
         import { Octokit } from "https://esm.sh/@octokit/core";
       </script>
@@ -21,21 +22,21 @@
              <div class="flex justify-between  text-headcolor">
                  <h1 class="text-[26px] tracking-normal font-bold">DevDetective</h1>
                 <div class="flex gap-3 cursor-pointer select-none" onclick="chmod()">
-                    <p class="text-[13px] tracking-[2.5px] font-bold">Dark</p>
-                    <img class="w-[20px] h-[20px]" src="assets/images/moon-icon.svg" alt="">
+                    <p data-modtext class="text-[13px] tracking-[2.5px] font-bold">Dark</p>
+                    <img data-modimg class="w-[20px] h-[20px]" src="assets/images/moon-icon.svg" alt="">
                 </div>
              </div>
              <!-- search -->
-                <div data-search class=" bg-white items-center flex p-3 pl-7 rounded-2xl justify-between shadow-lg">
+                <div data-search class=" bg-contback items-center flex p-3 pl-7 rounded-2xl justify-between shadow-lg">
                     <div class="flex items-center gap-3">
                         <img class="w-5 h-5" src="assets/images/search-icon.svg" alt="">
-                        <input type="text" class="w-[300px] text-[18px] focus:outline-none" name="username" id="username" placeholder="Enter a GitHub username..." >
+                        <input type="text" class="w-[300px] text-[18px] bg-contback focus:outline-none" name="username" id="username" placeholder="Enter a GitHub username..." >
                     </div>
                     <p data-alert class="text-red-500 font-semibold"></p>
-                    <button data-btn class="bg-blue-500 px-[28px] py-[14px] rounded-md text-white">Search</button>
+                    <button data-btn class="bg-blue-500 hover:bg-blue-300 px-[28px] py-[14px] rounded-md text-white">Search</button>
                 </div>
                 <!-- user-info -->
-                 <div data-info class="bg-white w-[730px] flex p-8 gap-10 shadow-lg">
+                 <div data-info class="bg-contback w-[730px] flex p-8 gap-10 shadow-lg">
                      <img data-avatar class="w-[117px] rounded-full h-[117px]">
                      <!-- info container -->
                      <div class="flex flex-col gap-1">
@@ -62,19 +63,19 @@
                         <!-- links -->
                          <div class="grid grid-cols-2 gap-y-4 text-headcolor mt-5">
                             <div class="flex gap-3">
-                                <img src="assets/images/location-icon.svg" >
+                                <img class="filter brightness-bright" src="assets/images/location-icon.svg" >
                                 <p data-location></p>
                             </div>
                             <div class="flex gap-3">
-                                <img src="assets/images/website-icon.svg" >
+                                <img class="filter brightness-bright" src="assets/images/website-icon.svg" >
                                 <p data-website></p>
                             </div>
                             <div class="flex gap-3">
-                                <img src="assets/images/twitter-icon.svg" >
+                                <img class="filter brightness-bright" src="assets/images/twitter-icon.svg" >
                                 <p data-twitter></p>
                             </div>
                             <div class="flex gap-3">
-                                <img src="assets/images/company-icon.svg" >
+                                <img class="filter brightness-bright" src="assets/images/company-icon.svg" >
                                 <p data-company></p>
                             </div>
                          </div>

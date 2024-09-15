@@ -19,32 +19,32 @@ let wrapper=document.querySelector("[data-wrapper]");
 let search=document.querySelector("[data-search]");
 let info=document.querySelector("[data-info]");
 let data=document.querySelector("[data-data]");
+let root=document.documentElement.style;
+let modimg=document.querySelector("[data-modimg]");
+let modtext=document.querySelector("[data-modtext]");
 let currmod="light";
 function chmod(){
   if(currmod=="light"){
     currmod="dark";
-    wrapper.style.color="white";
-    input.classList.add("bg-[#1E2A47]");
-    input.classList.remove("bg-white");
-    wrapper.classList.remove("bg-backcolr");
-    wrapper.classList.add("bg-[#141D2F]");
-    search.classList.remove("bg-white");
-    search.classList.add("bg-[#1E2A47]");
-    info.classList.remove("bg-white");
-    info.classList.add("bg-[#1E2A47]");
-    data.classList.add("bg-[#1E2A47]");
+    modtext.textContent="Light";
+    wrapper.style.color="#FFFFFF";
+    root.setProperty("--backcolor","#141D2F");
+    root.setProperty("--headcolor","#FFFFFF");
+    root.setProperty("--fontcolor","#FFFFFF");
+    root.setProperty("--contback","#1E2A47");
+    root.setProperty("--bright","1000%");
+    modimg.setAttribute("src","assets/images/sun-icon.svg");
+    
   }else{
     currmod="light";
-    wrapper.style.color="black";
-    input.classList.remove("bg-[#1E2A47]");
-    input.classList.add("bg-white");
-    wrapper.classList.add("bg-backcolr");
-    wrapper.classList.remove("bg-[#141D2F]");
-    search.classList.remove("bg-[#1E2A47]");
-    search.classList.add("bg-white");
-    info.classList.add("bg-white");
-    info.classList.remove("bg-[#1E2A47]");
-    data.classList.remove("bg-[#1E2A47]");
+    modtext.textContent="Dark";
+    wrapper.style.color="#000000";
+    root.setProperty("--backcolor","#F6F8FF");
+    root.setProperty("--headcolor","#4B6A9B");
+    root.setProperty("--fontcolor","#778FB3");
+    root.setProperty("--contback","#FFFFFF");
+    root.setProperty("--bright","100%");
+    modimg.setAttribute("src","assets/images/moon-icon.svg");
 
   }
 }

@@ -4,11 +4,14 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        backcolor:"#F6F8FF",
-        headcolor:"#4B6A9B",
-        hoverbuttoncolor:"#60ABFF",
-        fontcolor:"#778FB3"
-
+        backcolor:"var(--backcolor)",
+        headcolor:"var(--headcolor)",
+        hoverbuttoncolor:"var(--hoverbuttoncolor)",
+        fontcolor:"var(--fontcolor)",
+        contback:"var(--contback)",
+      },
+      brightness:{
+        bright:"var(--bright)",   
       },
       fontFamily:{
         spacemono: ["Space Mono", "monospace"]

@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root{
+    --backcolor:#F6F8FF;
+    --headcolor:#4B6A9B;
+    --hoverbuttoncolor:#60ABFF;
+    --fontcolor:#778FB3;
+    --contback:#FFFFFF;
+    --bright:100%;
+}
