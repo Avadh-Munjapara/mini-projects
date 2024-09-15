@@ -45,7 +45,6 @@ function chmod(){
     root.setProperty("--contback","#FFFFFF");
     root.setProperty("--bright","100%");
     modimg.setAttribute("src","assets/images/moon-icon.svg");
-
   }
 }
 
@@ -68,41 +67,57 @@ btn.addEventListener("click",()=>{
 });
 let alert=document.querySelector("[data-alert]");
 
+
+
 async function render_info(user){
 
   let avatar=document.querySelector("[data-avatar]");
   let username=document.querySelector("[data-username]");
   let joindate=document.querySelector("[data-joindate]");
   let link=document.querySelector("[data-link]");
-  let bio=document.querySelector("[data-bio]");
   let repos=document.querySelector("[data-repos]");
   let followers=document.querySelector("[data-followers]");
   let following=document.querySelector("[data-following]");
-  let location=document.querySelector("[data-location]");
+  let bio=document.querySelector("[data-bio]");
   let website=document.querySelector("[data-website]");
   let twitter=document.querySelector("[data-twitter]");
   let company=document.querySelector("[data-company]");
+  let locationn=document.querySelector("[data-location]");
+  
+  function checknull(para1,para2){
+    if(para1===null || para1===""){
+      para2.style.opacity=0.5;
+      para2.previousElementSibling.style.opacity=0.5;
+      return true;
+    }   
+    else{
+      para2.style.opacity=1;
+      para2.previousElementSibling.style.opacity=1;
+      return false;
+    } 
+      
+  }
+
   let user_data=await get_user(user);
   if(user_data.login){
     alert.textContent="";
-    console.log(user_data);
+    console.log(user_data); 
     avatar.src=`${user_data?.avatar_url}`;
     username.textContent=`${user_data?.name}`;
     joindate.textContent=`${user_data?.created_at}`;
     link.textContent=`@${user_data.login}`;
     link.href=`${user_data?.html_url}`;
-    bio.textContent=`${user_data?.bio}`;
+    bio.textContent= user_data.bio===null ?'This profile has no bio':`${user_data?.bio}`;
     repos.textContent=`${user_data?.public_repos}`;
     followers.textContent=`${user_data?.followers}`;
     following.textContent=`${user_data?.following}`;
-    location.textContent=`${user_data?.location}`;
-    website.textContent=`${user_data?.blog}`
-    twitter.textContent=`${user_data?.twitter_username}`;
-    company.textContent=`${user_data?.company}`;
+    locationn.textContent=checknull(user_data.location,locationn)?`Not Available`:`${user_data?.location}`;
+    website.textContent=checknull(user_data.blog,website)?`Not Available`:`${user_data?.blog}`
+    twitter.textContent=checknull(user_data.twitter_username,twitter)?`Not Available`:`${user_data?.twitter_username}`;
+    company.textContent=checknull(user_data.company,company)?`Not Available`:`${user_data?.company}`;
   }
   else{
     alert.textContent="no search results found";
   }
 }
-
-render_info("thepranaygupta");
+render_info("Avadh-Munjapara");
