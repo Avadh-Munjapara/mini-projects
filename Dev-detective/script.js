@@ -1,5 +1,4 @@
-
-let key="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";
+let key="";
 async function get_user(username){
   try{
     let response=await fetch(`https://api.github.com/users/${username}`,{
