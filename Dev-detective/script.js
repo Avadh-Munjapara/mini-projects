@@ -1,6 +1,5 @@
-// require('dotenv').config()
-// process.env.GIT_KEY;
-const key =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;
+
+let key="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";
 async function get_user(username){
   try{
     let response=await fetch(`https://api.github.com/users/${username}`,{
@@ -103,7 +102,8 @@ async function render_info(user){
   let twitter=document.querySelector("[data-twitter]");
   let company=document.querySelector("[data-company]");
   let locationn=document.querySelector("[data-location]");
-  
+  let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
   function checknull(para1,para2){
     if(para1===null || para1===""){
       para2.style.opacity=0.5;
@@ -124,7 +124,8 @@ async function render_info(user){
     console.log(user_data); 
     avatar.src=`${user_data?.avatar_url}`;
     username.textContent=`${user_data?.name}`;
-    joindate.textContent=`${user_data?.created_at}`;
+    let datesegment=user_data.created_at.split("T").shift().split("-");
+    joindate.textContent=`Joined ${datesegment[2]} ${months[datesegment[1]-1]} ${datesegment[0]}`;
     link.textContent=`@${user_data.login}`;
     link.href=`${user_data?.html_url}`;
     bio.textContent= user_data.bio===null ?'This profile has no bio':`${user_data?.bio}`;
