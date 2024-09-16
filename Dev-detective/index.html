@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"></head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script type="module">
         import { Octokit } from "https://esm.sh/@octokit/core";
       </script>
@@ -32,9 +32,6 @@
                     <div class="flex items-center gap-3">
                         <img class="w-5 h-5" src="assets/images/search-icon.svg" alt="">
                         <input type="text" class="w-[300px] text-[18px] bg-contback focus:outline-none" name="username" id="username" placeholder="Enter a GitHub username..." >
-                        <span  data-cross class="hidden cursor-pointer">
-                            <i class="fa-solid fa-xmark text-xl opacity-[0.5] "></i>
-                        </span>
                     </div>
                     <p data-alert class="text-red-500 font-semibold"></p>
                     <button data-btn class="bg-blue-500 hover:bg-blue-300 px-[28px] py-[14px] rounded-md text-white">Search</button>
