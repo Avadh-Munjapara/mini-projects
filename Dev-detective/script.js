@@ -68,25 +68,6 @@ btn.addEventListener("click",()=>{
 });
 let alert=document.querySelector("[data-alert]");
 
-let cross=document.querySelector("[data-cross]");
-
-if(input.value){
-  cross.style.display="inline";
-}
-
-cross.addEventListener("click",function (){
-  let text= 
-  input.textContent.length=0;
-});
-
-input.addEventListener("input",function (){
-  if(input.value.length!=0){
-    cross.style.display="inline";
-  }
-  else{
-    cross.style.display="none";
-  }
-});
 
 
 async function render_info(user){
