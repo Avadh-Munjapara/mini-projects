@@ -66,6 +66,27 @@ btn.addEventListener("click",()=>{
 });
 let alert=document.querySelector("[data-alert]");
 
+let cross=document.querySelector("[data-cross]");
+
+if(input.value){
+  cross.style.display="block";
+}
+
+cross.addEventListener("click",function (){
+  let text= 
+  input.value="";
+  cross.style.display="none";
+
+});
+
+input.addEventListener("input",function (){
+  if(input.value.length!=0){
+    cross.style.display="block";
+  }
+  else{
+    cross.style.display="none";
+  }
+});
 
 
 async function render_info(user){
