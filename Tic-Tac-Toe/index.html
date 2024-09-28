@@ -5,28 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
     <!-- wrapper -->
-    <div class="bg-gradient-to-b from-slate-400 to-slate-200 overflow-x-hidden h-[100vh] flex justify-center items-center">
+    <div style="background-image: url(assets/gradient-bg.jpg);" class="bg-cover overflow-x-hidden h-[100vh] flex justify-center items-center">
         <!-- container -->
          <div class="flex flex-col gap-7">
             <!-- player name -->
-            <p data-pname class="">player</p>
+            <p data-pname class=" bg-white/20 px-6 py-4 outline-1 outline-white text-white text-center font-semibold  rounded-md">player</p>
             <!-- tic-tac-toe box -->
-             <div data-ticbox class="grid grid-cols-3 ">
-                <div>f</div>
-                <div>f</div>
-                <div>f</div>
-                <div>f</div>
-                <div>f</div>
-                <div>f</div>
-                <div>f</div>
-                <div>f</div>
-                <div>f</div>
+             <div class="p-8 rounded-lg bg-white/20">
+                <div class="flex w-60 flex-wrap">
+                    <div class="flex justify-center items-center h-20 w-20 border-r-2 border-b-2 "><i class="text-5xl text-white fa-solid fa-o"></i></div>
+                    <div class="flex justify-center items-center h-20 w-20 border-r-2 border-b-2 "><i class="text-white text-5xl fa-solid fa-x"></i></div>
+                    <div class="flex justify-center items-center h-20 w-20  border-b-2 "></div>
+                    <div class="flex justify-center items-center h-20 w-20 border-r-2 border-b-2 "></div>
+                    <div class="flex justify-center items-center h-20 w-20 border-r-2 border-b-2 "></div>
+                    <div class="flex justify-center items-center h-20 w-20 border-b-2 "></div>
+                    <div class="flex justify-center items-center h-20 w-20 border-r-2  "></div>
+                    <div class="flex justify-center items-center h-20 w-20 border-r-2  "></div>
+                    <div class="flex justify-center items-center h-20 w-20  "></div>
+                </div>
              </div>
              <!-- new game box -->
-              <p data-newbox>new </p>
+              <p data-newbox class="p-4 rounded-lg bg-white/20 font-semibold hidden text-white text-center">new</p>
          </div>
          
     </div>
