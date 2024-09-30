@@ -11,17 +11,33 @@ function init(){
     currplayer.textContent=`Current Player : ${currentplayer}`;
     boxes.forEach(function(el){
         el.innerText="";
+        el.style.pointerEvents="all";
     })
     gameinfo.forEach(function(el,index){
         gameinfo[index]="";
     })
-    // newbtn.classList.add("hidden");
+    newbtn.classList.add("invisible");
 }
+
+// function gameover(){
+//     winningpos.forEach(position){
+//         posit
+//     }
+// }
 
 function handleclick(index){
     if(gameinfo[index]==""){
         gameinfo[index]=currentplayer;
         boxes[index].innerText=`${currentplayer}`;
+    }
+    let count=0;
+    gameinfo.forEach((el)=>{
+        if(el!=""){
+            count++;
+        }
+    })
+    if(count==9){
+        newbtn.classList.remove("invisible");
     }
 }
 
@@ -37,7 +53,9 @@ function swapturn(){
 
 boxes.forEach(function(el,index){   
     el.addEventListener("click",()=>{
+        el.style.pointerEvents="none";
         handleclick(index);
+        // gameover();
         swapturn();
     });
 })
