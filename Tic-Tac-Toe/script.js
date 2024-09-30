@@ -1,34 +1,49 @@
 let boxes=document.querySelectorAll("[data-box]");
 let currplayer=document.querySelector("[data-pname]");
 let newbtn=document.querySelector("[data-newbox]");
-currplayer.textContent="Current Player X";
-let turn=0;
-let clickedarray=[];
-let ox=function (e){
-    let clicked=e.target;
-    if(turn==0){
-        currplayer.textContent="Current Player X";
-        turn=1;
-        clicked.innerHTML="<i class=\"text-5xl text-white fa-solid fa-o\"></i>"
+let currentplayer;
+let gameinfo=["","","","","","","","",""];
+const winningpos=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+
+
+function init(){
+    currentplayer="X";
+    currplayer.textContent=`Current Player : ${currentplayer}`;
+    boxes.forEach(function(el){
+        el.innerText="";
+    })
+    gameinfo.forEach(function(el,index){
+        gameinfo[index]="";
+    })
+    // newbtn.classList.add("hidden");
+}
+
+function handleclick(index){
+    if(gameinfo[index]==""){
+        gameinfo[index]=currentplayer;
+        boxes[index].innerText=`${currentplayer}`;
+    }
+}
+
+function swapturn(){
+    if(currentplayer=="X"){
+        currentplayer="O";
     }
     else{
-        currplayer.textContent="Current Player O";
-        turn=0;
-        clicked.innerHTML="<i class=\"text-5xl text-white fa-solid fa-x\"></i>"
+        currentplayer="X";
     }
-    clickedarray.push(clicked);
-    clicked.removeEventListener("click",ox);
-};
+    currplayer.innerText=`Current Player : ${currentplayer}`;
+}
 
-boxes.forEach(function(el){
-    el.addEventListener("click",ox);
+boxes.forEach(function(el,index){   
+    el.addEventListener("click",()=>{
+        handleclick(index);
+        swapturn();
+    });
 })
 
 newbtn.addEventListener("click",function (){
-    
-    clickedarray.forEach(function(el){
-        el.innerHTML="";
-        el.addEventListener("click",ox);
-    })
-    clickedarray.length=0;
+    init();
 })
+
+init();
