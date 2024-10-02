@@ -7,16 +7,15 @@ function App() {
     function removecard(id){
         let newTours=tours.filter(tour=>tour.id!=id);
         setTours(newTours);
-        if(newTours.length==0){
-            return (
-                <div>
-                <p>No Tours left</p>
-                <button>Refresh</button>
-                </div>
-            )
-        }
     }
-
+  if(tours.length==0){
+      return (
+          <div>
+          <p>No Tours left</p>
+          <button onClick={()=>setTours(data)}>Refresh</button>
+          </div>
+      )
+  }
   return (
     <Tours tours={tours} onremove={removecard}></Tours> 
   );
