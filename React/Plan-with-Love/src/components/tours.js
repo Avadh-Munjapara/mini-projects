@@ -1,16 +1,15 @@
 import { useState } from 'react'
-import data from '../data'
 import Card from './card'
 
-export default function Tours(){
-    const [tours,setTours]=useState(data);
+export default function Tours({tours,onremove}){
+    
     return(
         <div>
         <h1>Travel with Love</h1>
         <div>
         {
             tours.map((tour)=>{
-                return <Card {...tour} ></Card>
+                return <Card {...tour} onremove={onremove} ></Card>
             })
         }
         </div>

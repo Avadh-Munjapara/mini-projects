@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-export default function Card({id,name,image,info,price}){
+export default function Card({id,name,image,info,price,onremove}){
     const description=`${info.substr(0,200)}...`;
     const[readmore,setreadmore]=useState(true);
     function readmoreHandler(){
         setreadmore(!readmore);
     }
     function removeHandler(){
-
+        onremove(id);
     }
     return(
         <div>
