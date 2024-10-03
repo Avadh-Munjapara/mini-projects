@@ -11,7 +11,7 @@ export default function Card({id,name,image,info,price,onremove}){
     }
     return(
         <div className="rounded-lg h-max p-3 flex flex-col gap-3 shadow-[0px_3px_8px_rgba(0,0,0,0.24)] w-[400px]">
-            <img className="w-[380px] aspect-square bg-contain" src={image}/>
+            <img className="w-[380px] aspect-square bg-cover" src={image}/>
             <div className="flex flex-col">
             <p className="text-xl font-bold text-green-600">&#8377;{price}</p>
             <h2 className="text-2xl font-bold">{name}</h2>
