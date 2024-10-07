@@ -1,4 +1,5 @@
 import Card from './Card';
+import { toast } from 'react-toastify';
 
 export default function Cards({courses,category}){
 

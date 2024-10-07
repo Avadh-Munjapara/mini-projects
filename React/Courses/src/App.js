@@ -4,6 +4,7 @@ import Spinner from "./components/Spinner";
 import {useState,useEffect} from 'react';
 import { apiUrl,filterData } from "./data";
 import Filter from "./components/Filter";
+import {toast} from "react-toastify";
 
   
 function App() {
