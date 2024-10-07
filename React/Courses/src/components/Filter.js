@@ -1,14 +1,18 @@
-export default function Filter({filterData}){
+export default function Filter({filterData,setCategory}){
+    function clickHandler(title,e){
+     setCategory(title);
+    }
     return(
-        <div>
-            {
-            
+<> {
             filterData.map(cat=>{
-                return <button key={cat.id} >{cat.title}</button>
+                return <button onClick={
+                    ()=>{
+                        clickHandler(cat.title);
+                    }
+                } className="py-2 px-5 text-white rounded-md bg-[#2E3142] " key={cat.id} >{cat.title}</button>
             })
             
-            
-            }
-        </div>
+            }</>
+       
     )
 }
