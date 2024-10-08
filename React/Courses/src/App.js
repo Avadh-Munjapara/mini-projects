@@ -4,7 +4,6 @@ import Spinner from "./components/Spinner";
 import {useState,useEffect} from 'react';
 import { apiUrl,filterData } from "./data";
 import Filter from "./components/Filter";
-import {toast} from "react-toastify";
 
   
 function App() {
@@ -13,7 +12,6 @@ function App() {
   const [loading,setLoading]=useState(true);
   const [category,setCategory]=useState(filterData[0].title);
 
-
     async function getdata(params) {
       setLoading(true);
       try {
@@ -21,7 +19,7 @@ function App() {
         let data=await raw.json();
         let cat=data.data;
         setCourses(cat); 
-        // console.log(courses["Development"]);
+        console.log(cat);
       } catch (error) {
         console.log("error occured");
       }
@@ -39,8 +37,7 @@ function App() {
       </Navbar>
     
     {
-      loading ? (<Spinner/>):(<Cards  courses={courses} category={category} />)
-    }
+      loading ? (<Spinner/>):(<Cards  courses={courses} category={category}  />)    }
    </div>
   );
 }

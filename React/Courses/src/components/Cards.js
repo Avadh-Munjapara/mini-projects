@@ -1,7 +1,8 @@
 import Card from './Card';
-import { toast } from 'react-toastify';
+import {useState} from 'react';
 
 export default function Cards({courses,category}){
+    const [likedCourses,setLikedCourses]=useState([]);
 
     function getcourses(){
         let allcourses=[];
@@ -26,7 +27,7 @@ export default function Cards({courses,category}){
             {
                 getcourses().map(course=>{
                     return (
-                        <Card key={course.id} course={course} />
+                        <Card key={course.id} course={course} likedCourses={likedCourses} setLikedCourses={setLikedCourses}/>
                     )
                 })
             }            

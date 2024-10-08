@@ -1,17 +1,25 @@
 import { toast } from 'react-toastify';
 import {FcLike,FcLikePlaceholder} from "react-icons/fc"
-import {useState} from 'react';
-export default function Card({course}){
-    const [ts,setts]=useState(true);
+export default function Card({course,setLikedCourses,likedCourses}){
     function toastHandler(){
-        setts(!ts);
-        if(ts){
+        if(likedCourses.includes(course.id)){
+            setLikedCourses((prev)=>{
+                    return [...prev].filter((id)=>id!==course.id);
+            })
+            toast.warning("Liked Removed!");
+        }
+        else if(likedCourses.length==0){
+            setLikedCourses(course.id);
             toast.success("Course Liked!");
         }
         else{
-            toast.warning("Liked Removed");
+            setLikedCourses((prev)=>{
+                return [...prev,course.id];
+            })
+            toast.success("Course Liked!");
         }
     }
+    
     let description;
     if(course.description.length>100){
          description=course.description.substr(0,100)+"...";
@@ -25,7 +33,7 @@ export default function Card({course}){
         <div className="absolute right-3 bg-white h-10 w-10 rounded-full
          flex justify-center items-center top-[135px] hover:cursor-pointer" onClick={toastHandler}>
             {
-                ts?<FcLikePlaceholder className="w-7 h-7"/>:<FcLike className="w-7 h-7"/>
+                !likedCourses.includes(course.id)?<FcLikePlaceholder className="w-7 h-7"/>:<FcLike className="w-7 h-7"/>
             }
             </div>   
         <div className="text-white flex flex-col gap-2 pb-3 px-3">
