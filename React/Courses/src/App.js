@@ -12,7 +12,7 @@ function App() {
   const [loading,setLoading]=useState(true);
   const [category,setCategory]=useState(filterData[0].title);
 
-    async function getdata(params) {
+    async function getdata() {
       setLoading(true);
       try {
         let raw=await fetch(apiUrl);
@@ -33,11 +33,16 @@ function App() {
   return (
    <div className="bg-[#4A4E69] min-h-screen">
     <Navbar>
-      <Filter courses={courses} filterData={filterData} setCategory={setCategory}></Filter>
-      </Navbar>
-    
+      <div  className="flex justify-center gap-5 py-4 h-full">
+      <Filter courses={courses} filterData={filterData} category={category} setCategory={setCategory}></Filter>
+      </div>
+    </Navbar>
+    <div className="min-h-[50vh] flex flex-col justify-center items-center">
     {
-      loading ? (<Spinner/>):(<Cards  courses={courses} category={category}  />)    }
+      loading ? (<Spinner/>):(<Cards  courses={courses} category={category}  />)    
+    }
+    </div>
+ 
    </div>
   );
 }

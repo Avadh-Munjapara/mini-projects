@@ -1,5 +1,5 @@
-export default function Filter({filterData,setCategory}){
-    function clickHandler(title,e){
+export default function Filter({filterData,setCategory,category}){
+    function clickHandler(title){
      setCategory(title);
     }
     return(
@@ -9,7 +9,8 @@ export default function Filter({filterData,setCategory}){
                     ()=>{
                         clickHandler(cat.title);
                     }
-                } className="py-2 px-5 text-white rounded-md hover:bg-[#252734] transition-all duration-200 bg-[#2E3142] " key={cat.id} >{cat.title}</button>
+                }  className={`px-5 h-10 text-white rounded-md r ${category==cat.title?"bg-[#252734] border-2 ":"bg-[#2E3142] border-transparent"}  
+                transition-all duration-200 `} key={cat.id} >{cat.title}</button>
             })
             
             }</>
