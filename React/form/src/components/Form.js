@@ -14,7 +14,7 @@ const Form = () => {
         comments:true,
         candidates:false,
         offers:true,
-
+        notifications:"",
     })
 
     return (
@@ -73,13 +73,13 @@ const Form = () => {
 
             <fieldset>
                 <legend>Push Notifications<br />These are delivered via SMS to your mobile phone.</legend>
-                <input type="radio" name="everything" id="everything" />
+                <input type="radio" name="notifications" id="everything" />
                 <label htmlFor="everything">Everything</label>
                 <br />
-                <input type="radio" name="sameEmail" id="sameEmail" />
+                <input type="radio" name="notifications" id="sameEmail" />
                 <label htmlFor="sameEmail">Same as Email</label>
                 <br />
-                <input type="radio" name="noNoti" id="noNoti" />
+                <input type="radio" name="notifications" id="noNoti" />
                 <label htmlFor="noNoti">No Push Notifications</label>
             </fieldset>
 
