@@ -7,7 +7,10 @@ const Navbar = ({IsLoggedIn,setIsLoggedIn}) => {
     const navigate=useNavigate();
     return (
         <div className='flex py-3 justify-between text-[#AFB2BF] w-[90vw] mx-auto items-center'>
-            <div><img className='h-9' src={logo} alt="logo" /></div>
+
+            <Link to="/home">         
+               <div><img className='h-9' src={logo} alt="logo" /></div>
+            </Link>
             <div className='flex gap-5'>
                 <Link to="/home">   
                  <button>Home</button>   

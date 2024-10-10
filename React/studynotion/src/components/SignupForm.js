@@ -51,6 +51,8 @@ const SignupForm = ({setIsLoggedIn}) => {
 
   return (
     <div>
+        <div className="flex flex-col gap-4">
+
         <div className="bg-[#161D29] w-fit flex gap-1 p-1 rounded-3xl">
             <button onClick={userHandler} className={`${user==='student'?'bg-[#000814]':'bg-[#161D29]'} rounded-3xl px-4 py-2`}>Student</button>
             <button onClick={userHandler} className={`${user==='instructor'?'bg-[#000814]':'bg-[#161D29]'} rounded-3xl px-4 py-2`}>Instructor</button>
@@ -59,7 +61,7 @@ const SignupForm = ({setIsLoggedIn}) => {
 
         <fieldset className="flex gap-3">
         <div className="flex flex-col gap-1">
-          <label htmlFor="fName">First Name</label>
+          <label htmlFor="fName">First Name<span className='text-red-500 text-sm absolute'>*</span></label>
           <input
             onChange={changeHandler}
             value={formData.fName}
@@ -73,7 +75,7 @@ const SignupForm = ({setIsLoggedIn}) => {
         </div>
 
         <div className="flex flex-col gap-1">
-          <label htmlFor="fName">Last Name</label>
+          <label htmlFor="fName">Last Name<span className='text-red-500 text-sm absolute'>*</span></label>
           <input
             onChange={changeHandler}
             value={formData.lName}
@@ -90,7 +92,7 @@ const SignupForm = ({setIsLoggedIn}) => {
 
 
         <div className="flex flex-col gap-1">
-          <label htmlFor="email">Email Address</label>
+          <label htmlFor="email">Email Address<span className='text-red-500 text-sm absolute'>*</span></label>
           <input
             onChange={changeHandler}
             value={formData.email}
@@ -108,7 +110,7 @@ const SignupForm = ({setIsLoggedIn}) => {
         <fieldset className="flex gap-3">
 
         <div>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password<span className='text-red-500 text-sm absolute'>*</span></label>
           <div className="flex items-center gap-1 rounded-md bg-[#161D29] px-3 py-2">
             <input
               onChange={changeHandler}
@@ -127,7 +129,7 @@ const SignupForm = ({setIsLoggedIn}) => {
 
         </div>
         <div>
-        <label htmlFor="cpassword">Confirm Password</label>
+        <label htmlFor="cpassword">Confirm Password<span className='text-red-500 text-sm absolute'>*</span></label>
           <div className="flex items-center gap-1 rounded-md  bg-[#161D29] px-3 py-2">
             <input
               onChange={changeHandler}
@@ -152,6 +154,7 @@ const SignupForm = ({setIsLoggedIn}) => {
           Create Account
         </button>
       </form>
+        </div>
     </div>
   );
 };

@@ -6,7 +6,7 @@ import {FcGoogle} from "react-icons/fc"
 
 const Template = ({des1,type,img,setIsLoggedIn}) => {
     return (
-        <div className='min-h-[calc(100vh-65.33px)] py-14 text-white w-[85vw] mx-auto flex justify-between'>
+        <div className='min-h-[calc(100vh-65.33px)] py-12 text-white w-[85vw] mx-auto flex justify-between'>
         <div className='flex flex-col gap-4 w-[40%]'>
             <div>
             <p className='text-3xl font-semibold'>{des1}</p>
