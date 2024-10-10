@@ -22,7 +22,7 @@ const SignupForm = ({setIsLoggedIn}) => {
         lName:"",
         email: "",
         password:"",
-        cPassword:"",
+        cpassword:"",
     })
 
     function changeHandler(event){
@@ -40,6 +40,7 @@ const SignupForm = ({setIsLoggedIn}) => {
             toast.error("password didn't match");
             return;
         } 
+        console.log(formData);
         setIsLoggedIn(true);
         toast.success('Accout Created successfully');
         navigate("/dashboard");
