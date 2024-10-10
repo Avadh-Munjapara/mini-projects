@@ -6,7 +6,7 @@ import {FcGoogle} from "react-icons/fc"
 
 const Template = ({des1,type,img,setIsLoggedIn}) => {
     return (
-        <div className='h-[calc(100vh-65.33px)] pt-14 text-white w-[90vw] mx-auto flex justify-between'>
+        <div className='h-[calc(100vh-65.33px)] pt-14 text-white w-[80vw] mx-auto flex justify-between'>
         <div className='flex flex-col gap-4'>
             <div>
             <p className='text-3xl font-semibold'>{des1}</p>
@@ -16,7 +16,7 @@ const Template = ({des1,type,img,setIsLoggedIn}) => {
            
 
             {
-                type==='signup'?(<SignupForm></SignupForm>
+                type==='signup'?(<SignupForm setIsLoggedIn={setIsLoggedIn}></SignupForm>
                 ):(<LoginForm setIsLoggedIn={setIsLoggedIn}></LoginForm>)
             }
             <div className='flex items-center gap-2'>

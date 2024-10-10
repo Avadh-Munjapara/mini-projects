@@ -9,7 +9,8 @@ const Navbar = ({IsLoggedIn,setIsLoggedIn}) => {
         <div className='flex py-3 justify-between text-[#AFB2BF] w-[90vw] mx-auto items-center'>
             <div><img className='h-9' src={logo} alt="logo" /></div>
             <div className='flex gap-5'>
-                <Link to="/home">                <button>Home</button>   
+                <Link to="/home">   
+                 <button>Home</button>   
                 </Link>
                 <button>About</button>
                 <button>Contact</button>
@@ -22,8 +23,11 @@ const Navbar = ({IsLoggedIn,setIsLoggedIn}) => {
                             toast.success("Logged Out Successfully")
                             navigate('/home')
                         }
-                    } className='bg-[#161D29] px-5 py-2 rounded-md border-[0.5px] border-[#2C333F]'>Logout</button>  
+                    } className='bg-[#161D29] px-5 py-2 rounded-md border-[0.5px] border-[#2C333F]'>Logout</button>
+
+                    <Link to="/dashboard">
                     <button className='bg-[#161D29] px-5 py-2 rounded-md border-[0.5px] border-[#2C333F]'>Dashboard</button>
+                    </Link>
                </div>):(  <div className='flex gap-5'>
                 <button className='bg-[#161D29] px-5 py-2 rounded-md border-[0.5px] border-[#2C333F]'
                 onClick={()=>{
