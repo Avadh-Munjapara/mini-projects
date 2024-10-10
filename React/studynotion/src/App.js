@@ -5,8 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
-import { useState } from 'react';
-
+import {useState} from 'react';
 function App() {
 
   const [IsLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,9 +17,10 @@ function App() {
       <Navbar IsLoggedIn={IsLoggedIn}></Navbar>
       <Routes>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn}></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
+        <Route path='*' element={<Home></Home>}/>
       </Routes>
     </div>
 

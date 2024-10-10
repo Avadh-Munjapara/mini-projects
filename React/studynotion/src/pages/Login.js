@@ -1,10 +1,9 @@
 import React from 'react';
-
-const Login = () => {
+import img1 from '../assets/login.png';
+import Template from '../components/Template';
+const Login = ({setIsLoggedIn}) => {
     return (
-        <div>
-            
-        </div>
+     <Template des1="Welcome Back" img={img1} type="login" setIsLoggedIn={setIsLoggedIn}  ></Template>
     );
 }
 
