@@ -2,7 +2,8 @@ import React from 'react';
 import logo from "../assets/Logo.svg"
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-const Navbar = ({IsLoggedIn}) => {
+import toast from 'react-hot-toast';
+const Navbar = ({IsLoggedIn,setIsLoggedIn}) => {
     const navigate=useNavigate();
     return (
         <div className='flex py-3 justify-between text-[#AFB2BF] w-[90vw] mx-auto items-center'>
@@ -15,7 +16,13 @@ const Navbar = ({IsLoggedIn}) => {
             </div>
             {
                 IsLoggedIn?(<div className='flex gap-5'>
-                    <button className='bg-[#161D29] px-5 py-2 rounded-md border-[0.5px] border-[#2C333F]'>Logout</button>
+                    <button onClick={
+                        ()=>{
+                            setIsLoggedIn(false);
+                            toast.success("Logged Out Successfully")
+                            navigate('/home')
+                        }
+                    } className='bg-[#161D29] px-5 py-2 rounded-md border-[0.5px] border-[#2C333F]'>Logout</button>  
                     <button className='bg-[#161D29] px-5 py-2 rounded-md border-[0.5px] border-[#2C333F]'>Dashboard</button>
                </div>):(  <div className='flex gap-5'>
                 <button className='bg-[#161D29] px-5 py-2 rounded-md border-[0.5px] border-[#2C333F]'

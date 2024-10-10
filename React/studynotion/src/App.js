@@ -14,7 +14,7 @@ function App() {
 
 
     <div className='bg-[#000814]'>
-      <Navbar IsLoggedIn={IsLoggedIn}></Navbar>
+      <Navbar IsLoggedIn={IsLoggedIn} setIsLoggedIn={setIsLoggedIn}></Navbar>
       <Routes>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn}></Login>}></Route>
