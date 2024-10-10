@@ -6,8 +6,8 @@ import {FcGoogle} from "react-icons/fc"
 
 const Template = ({des1,type,img,setIsLoggedIn}) => {
     return (
-        <div className='h-[calc(100vh-65.33px)] pt-14 text-white w-[80vw] mx-auto flex justify-between'>
-        <div className='flex flex-col gap-4'>
+        <div className='min-h-[calc(100vh-65.33px)] py-14 text-white w-[85vw] mx-auto flex justify-between'>
+        <div className='flex flex-col gap-4 w-[40%]'>
             <div>
             <p className='text-3xl font-semibold'>{des1}</p>
             <p className='text-[#9FA2AF] text-lg'>Build skills for today, tomorrow, and beyond.</p>
@@ -27,7 +27,7 @@ const Template = ({des1,type,img,setIsLoggedIn}) => {
             
             <button className='flex w-full border-2 justify-center py-2 items-center gap-1'><FcGoogle/> Sign with Google</   button>
         </div>
-        <div>
+        <div className='self-center'>
             <div className="relative"> 
             <img className='h-[351px] w-[390px] absolute right-5 bottom-5' src={img} alt="" />
             <img className='h-[351px] w-[390px]' src={frame} alt="" />

@@ -8,14 +8,21 @@ const SignupForm = ({setIsLoggedIn}) => {
 
     const [user, setUser] = useState("student");
     const [showPass, setshowPass] = useState(false);
+    const [showConPass, setshowConPass] = useState(false);
     const navigate=useNavigate();
     function passHandler(){
         setshowPass(!showPass);
     }
 
+    function cpassHandler(){
+        setshowConPass(!showConPass);
+    }
     const [formData,setFormData]=useState({
+        fName:"",
+        lName:"",
         email: "",
         password:"",
+        cPassword:"",
     })
 
     function changeHandler(event){
@@ -29,9 +36,13 @@ const SignupForm = ({setIsLoggedIn}) => {
 
     function submitHandler(event){
         event.preventDefault();
+        if(formData.password!==formData.cpassword){
+            toast.error("password didn't match");
+            return;
+        } 
         setIsLoggedIn(true);
-        toast.success('Logged in successfully');
-        navigate("/dashboard")
+        toast.success('Accout Created successfully');
+        navigate("/dashboard");
     }
 
     function userHandler(){
@@ -45,6 +56,39 @@ const SignupForm = ({setIsLoggedIn}) => {
             <button onClick={userHandler} className={`${user==='instructor'?'bg-[#000814]':'bg-[#161D29]'} rounded-3xl px-4 py-2`}>Instructor</button>
         </div>
       <form onSubmit={submitHandler} className="flex flex-col gap-4">
+
+        <fieldset className="flex gap-3">
+        <div className="flex flex-col gap-1">
+          <label htmlFor="fName">First Name</label>
+          <input
+            onChange={changeHandler}
+            value={formData.fName}
+            className="text-white rounded-md px-3 py-2 w-full outline-none bg-[#161D29]"
+            type="text"
+            required
+            placeholder="Enter Your First Name"
+            name="fName"
+            id="fName"
+          />
+        </div>
+
+        <div className="flex flex-col gap-1">
+          <label htmlFor="fName">Last Name</label>
+          <input
+            onChange={changeHandler}
+            value={formData.lName}
+            className="text-white rounded-md px-3 py-2 w-full outline-none bg-[#161D29]"
+            type="text"
+            required
+            placeholder="Enter Your Last Name"
+            name="lName"
+            id="lName"
+          />
+        </div>
+
+        </fieldset>
+
+
         <div className="flex flex-col gap-1">
           <label htmlFor="email">Email Address</label>
           <input
@@ -59,9 +103,13 @@ const SignupForm = ({setIsLoggedIn}) => {
           />
         </div>
 
-        <div className="flex flex-col gap-1">
+
+
+        <fieldset className="flex gap-3">
+
+        <div>
           <label htmlFor="password">Password</label>
-          <div className="flex items-center gap-1  bg-[#161D29] px-3 py-2">
+          <div className="flex items-center gap-1 rounded-md bg-[#161D29] px-3 py-2">
             <input
               onChange={changeHandler}
               value={formData.password}
@@ -76,9 +124,32 @@ const SignupForm = ({setIsLoggedIn}) => {
               {showPass ? <FaEyeSlash /> : <FaEye />}
             </div>
           </div>
+
         </div>
+        <div>
+        <label htmlFor="cpassword">Confirm Password</label>
+          <div className="flex items-center gap-1 rounded-md  bg-[#161D29] px-3 py-2">
+            <input
+              onChange={changeHandler}
+              value={formData.cpassword}
+              className="text-white rounded-md w-full outline-none bg-[#161D29]"
+              type={showConPass ? "text" : "password"}
+              required
+              placeholder="Confirm Password"
+              name="cpassword"
+              id="cpassword"
+            />
+            <div onClick={cpassHandler} className="cursor-pointer">
+              {showConPass ? <FaEyeSlash /> : <FaEye />}
+            </div>
+          </div>
+
+        </div>
+
+
+        </fieldset>
         <button className="w-full py-2 bg-[#FFD60A] text-black rounded-md">
-          Sign In
+          Create Account
         </button>
       </form>
     </div>
