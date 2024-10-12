@@ -37,18 +37,19 @@ const Tag = () => {
     },[]);
 
     return (
-        <div>
-            <h2>A random GIF</h2>
+        <div className='flex flex-col justify-center gap-2 rounded-md w-[50vw] items-center p-3 bg-blue-400'>
+            <h2 className='text-2xl font-semibold'>A random {tag} GIF</h2>
             {
                 loading?(<Spinner></Spinner>):(<img src={gif} alt="random img" />
                 )
             }
 
-            <form onSubmit={submitHandler}>
-
+            <form className='flex flex-col items-center px-3 gap-3 w-[50vw]' onSubmit={submitHandler}>
+            <div className='flex gap-2'> 
             <label htmlFor="tag">Enter Tag</label>
-            <input type="text" name='tag' id='tag' value={tag} onChange={changeHandler} />
-            <button>Generate</button>
+            <input className='px-2' type="text" name='tag' id='tag' value={tag} onChange={changeHandler} />
+            </div>
+            <button className='bg-yellow-300 w-full py-2 px-2 rounded-md'>Generate</button>
 
             </form>
         </div>

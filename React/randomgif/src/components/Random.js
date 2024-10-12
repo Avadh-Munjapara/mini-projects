@@ -3,7 +3,7 @@ import axios from 'axios';
 import Spinner from './Spinner';
 
 const API_KEY=process.env.REACT_APP_GIPHY_API_KEY;
-const url=`https://api.giphy.com/v1/gifs/random?api_ey=${API_KEY}&tag=&rating=g`;
+const url=`https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=&rating=g`;
 
 const Random = () => {
     const [gif, setGif] = useState('');
@@ -30,13 +30,13 @@ const Random = () => {
     },[]);
 
     return (
-        <div>
-            <h2>A random GIF</h2>
+        <div className='flex flex-col justify-center gap-2 rounded-md w-[50vw] items-center p-3 bg-green-400'>
+            <h2 className='text-2xl font-semibold'>A random GIF</h2>
             {
                 loading?(<Spinner></Spinner>):(<img src={gif} alt="random img" />
                 )
             }
-            <button onClick={clickHandler}>Generate</button>
+            <button onClick={clickHandler} className='bg-yellow-300 w-full py-2 px-2 rounded-md'>Generate</button>
         </div>
     );
 }
