@@ -3,7 +3,7 @@ import axios from 'axios';
 import Spinner from './Spinner';
 
 const API_KEY=process.env.REACT_APP_GIPHY_API_KEY;
-const url=`https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=&rating=g`;
+const url=`https://api.giphy.com/v1/gifs/random?api_ey=${API_KEY}&tag=&rating=g`;
 
 const Random = () => {
     const [gif, setGif] = useState('');
