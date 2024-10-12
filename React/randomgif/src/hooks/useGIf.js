@@ -16,7 +16,7 @@ const UseGIf = (tag) => {
         setGif(imgSource);
         setLoading(false);
     } catch (error) {
-        console.error('Error fetching random image:');
+        console.error('Error fetching random image:',error);
     }
     
 };

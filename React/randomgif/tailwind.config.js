@@ -5,6 +5,9 @@ module.exports = {
     extend: {
       backgroundImage:{
         'backimage':"url('./assets/bg.jpg')"
+      },
+      backgroundSize:{
+        '100%': '100% 100%',
       }
     },
   },
