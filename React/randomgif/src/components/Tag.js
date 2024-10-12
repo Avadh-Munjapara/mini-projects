@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const Tag = () => {
-   
-
     return (
         <div>
-            <h2>Random Car GIF</h2>
+            
         </div>
     );
 }
