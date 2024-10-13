@@ -4,7 +4,7 @@ import Pagination from "./components/Pagination";
 
 function App() {
   return (
-    <div>
+    <div className="flex flex-col gap-5 pb-6">
       <Header/>
       <Blogs/>
       <Pagination/>
