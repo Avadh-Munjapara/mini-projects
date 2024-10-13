@@ -1,6 +1,7 @@
 import React, { Children, createContext, useEffect, useState } from 'react';
-
 export const appContext=createContext();
+
+const url=process.env.REACT_APP_URL;
 
 export default function AppContextProvider ({children})  {
 
@@ -9,14 +10,13 @@ export default function AppContextProvider ({children})  {
     const [loading,setLoading]=useState(false);
     const [totalPages,setTotalPages]=useState(null);
 
-    const url='https://codehelp-apis.vercel.app/api/get-blogs';
 
     async function fetchData(page) {
         try {
             setLoading(true);
-            const response=await fetch(url);
+            const response=await fetch(`${url}?page=${page}`);
             const data=await response.json();
-            console.log(data);
+            setPage(data.page);
             setPosts(data.posts);
             setTotalPages(data.totalPages);
 
@@ -26,13 +26,16 @@ export default function AppContextProvider ({children})  {
         setLoading(false);
     }
 
+    function changePage(page){
+        fetchData(page);
+    }
 
     useEffect(()=>{
         fetchData(page);
     },[]);
 
     const value={
-        page,setPage,posts,setPosts,loading,setLoading,totalPages,setTotalPages
+        page,setPage,posts,setPosts,loading,setLoading,totalPages,setTotalPages,changePage
     }
     return <appContext.Provider value={value}>
         {children}
