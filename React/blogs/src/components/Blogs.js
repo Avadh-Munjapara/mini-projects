@@ -7,7 +7,9 @@ const Blogs = () => {
     const {posts,loading}=useContext(appContext)
 
     return (
-        <div className='flex justify-center items-center '>
+        <div className='flex py-20 justify-center h items-center '>
+
+            <div>
 
            { 
              loading?(<Spinner></Spinner>):
@@ -17,6 +19,8 @@ const Blogs = () => {
                 }
             </div>)
            }
+
+            </div>
 
           
 
