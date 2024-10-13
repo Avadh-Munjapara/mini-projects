@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Spinner from './Spinner';
 import UseGIf from '../hooks/useGIf';
-
-
 
 const Random = () => {
     const {gif,loading,fetchRandomGif}=UseGIf();
