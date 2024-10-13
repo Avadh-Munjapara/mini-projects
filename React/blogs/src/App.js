@@ -4,7 +4,7 @@ import Pagination from "./components/Pagination";
 
 function App() {
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col justify-center items-center gap-5">
       <Header/>
       <Blogs/>
       <Pagination/>
