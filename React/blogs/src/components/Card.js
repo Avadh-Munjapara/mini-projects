@@ -14,7 +14,7 @@ const Card = ({data}) => {
             <p>{data.content}</p>
             <div>
             {
-                data.tags.map((tag, index) => <NavLink to={`/tag/${tag}`}><span className='text-[#1D4ED8] font-semibold' key={index}> #{tag}</span></NavLink>)
+                data.tags.map((tag, index) => <NavLink key={index} to={`/tag/${tag.replaceAll(' ','-')}`}><span className='text-[#1D4ED8] font-semibold' key={index}> #{tag}</span></NavLink>)
             }
             </div>
         </div>

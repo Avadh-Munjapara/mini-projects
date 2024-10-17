@@ -16,8 +16,9 @@ function App() {
       fetchData(Number(page),null,location.pathname.split('/').at(-1).replaceAll('-',' '));
     }
     else if(location.pathname.includes('tag')){
-      fetchData(Number(page),location.pathname.split('/').at(-1).replaceAll('-',' '));
-      console.log(location.pathname.split('/').at(-1));
+      let tag=location.pathname.split('/').at(-1).replaceAll('-',' ');
+      fetchData(Number(page),tag);
+      console.log(tag);
     }
     else{
       fetchData(Number(page));

@@ -5,10 +5,8 @@ import Spinner from './Spinner';
 
 const Blogs = () => {
     const {posts,loading}=useContext(appContext)
-
     return (
         <div className='flex flex-col py-20 justify-center items-center '>
-
             <div>
 
            { 

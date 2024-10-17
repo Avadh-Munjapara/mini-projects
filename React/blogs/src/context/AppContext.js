@@ -15,7 +15,7 @@ export default function AppContextProvider ({children})  {
         let url=`${baseUrl}?page=${page}`;
         console.log(page);
         if(tag){
-            url+=`&${tag}`;
+            url+=`&tag=${tag}`;
         }
         else if(category){
             url+=`&category=${category}`;
