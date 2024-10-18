@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { appContext } from '../context/AppContext';
 import Card from './Card';
 import Spinner from './Spinner';
+import { useLocation } from 'react-router-dom';
 
 const Blogs = () => {
+    let location=useLocation();
     const {posts,loading}=useContext(appContext)
     return (
-        <div className='flex flex-col pb-20 pt-2 justify-center items-center '>
+        <div className={`flex flex-col ${location.pathname.includes('tag')||location.pathname.includes('category')?'pt-0':'pt-20'} pb-20  justify-center items-center `}>
             <div>
 
            { 
