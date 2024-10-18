@@ -7,7 +7,7 @@ export default function AppContextProvider ({children})  {
 
     const [page, setPage] = useState(1);
     const [posts,setPosts]=useState([]);
-    const [loading,setLoading]=useState(false);
+    const [loading,setLoading]=useState(true);
     const [totalPages,setTotalPages]=useState(null);
     let navigate=useNavigate();
     let location=useLocation();

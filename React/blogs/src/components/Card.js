@@ -6,7 +6,7 @@ const Card = ({data}) => {
         <div className='flex flex-col gap-3'>
             
 
-            <h2 className='text-xl font-bold'>{data.title}</h2>
+            <NavLink to={`/blog/${data.id}`}><h2 className='text-xl font-bold'>{data.title}</h2></NavLink>
             <div>
             <p>By <span className='italic'>{data.author}</span> on <NavLink to={`/category/${data.category}`}><span className='italic underline font-semibold'>{data.category}</span></NavLink></p>
             <p>Posted on {data.date}</p>
