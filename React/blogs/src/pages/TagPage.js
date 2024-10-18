@@ -9,8 +9,8 @@ const TagPage = () => {
     return (
         <div>
             <Header/>
-            <div className=' relative  top-[75px] mx-auto mt-3 w-11/12 max-w-[670px] pl-7'>
-            <button className='border-2 py-1 px-4 rounded-md' onClick={()=>{navigate(-1)}}>Back</button>
+            <div className='mt-[80px] mx-auto w-11/12 max-w-[670px] pl-7'>
+            <button className='border-2 py-1  px-4 rounded-md' onClick={()=>{navigate(-1)}}>Back</button>
             </div>
             <Blogs/>
             <Pagination/>
