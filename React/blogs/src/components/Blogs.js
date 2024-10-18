@@ -21,9 +21,7 @@ const Blogs = () => {
            }
 
             </div>
-
-          
-
+            
         </div>
      
     );
