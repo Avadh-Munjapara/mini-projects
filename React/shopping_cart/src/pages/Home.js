@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Product from '../components/Product';
 const Home = () => {
     const url=process.env.REACT_APP_URL;
     const [products,setProducts]=useState([]);
@@ -20,8 +21,10 @@ const Home = () => {
         getData();
     },[])
     return (
-        <div>
-            
+        <div className='grid grid-cols-4 max-w-[1152px] mx-auto'>
+            {
+                products.map((product)=> <Product data={product}/>)
+            }
         </div>
     );
 }
