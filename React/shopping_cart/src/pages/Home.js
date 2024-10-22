@@ -28,9 +28,11 @@ const Home = () => {
   return (
     navigator.onLine?(<div>
       {loading ? (
+        <div className="h-[calc(100vh-100px)] flex justify-center items-center">
         <Spinner />
+        </div>
       ) : (
-        <div className="grid grid-cols-4 max-w-[1152px] mx-auto">
+        <div className="grid grid-cols-4 max-w-[1152px] gap-x-3 gap-y-[19px] mt-10 mx-auto">
           {products.map((product) => (
             <Product data={product} />
           ))}

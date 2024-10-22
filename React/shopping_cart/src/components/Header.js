@@ -14,7 +14,8 @@ const Header = () => {
           </Link>
           <div className="relative">
             <Link to="/cart">
-              <span className="absolute bg-green-300 text-black">{items.length === 0 ? <></> : items.length}</span>
+              <span className="absolute w-4 text-center ani -right-1 text-white
+                bg-green-500 rounded-full px-1 text-[12px] font-semibold">{items.length === 0 ? <></> : items.length}</span>
               <IoCartSharp className="w-7 h-7" />
             </Link>
           </div>
