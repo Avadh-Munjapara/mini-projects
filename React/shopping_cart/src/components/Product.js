@@ -9,8 +9,8 @@ const Product = ({ data }) => {
   const location = useLocation();
   let description = data.description.split(" ").slice(0, 10).join(" ");
   return (
-    <div>
-      <h2>{data.title}</h2>
+    <div className="flex flex-col">
+      <h2 className="flex font-Montserrat">{data.title}</h2>
       {
         location.pathname.includes('cart') ? 
         <></> :

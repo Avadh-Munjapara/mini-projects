@@ -5,6 +5,8 @@ const Home = () => {
   const url = process.env.REACT_APP_URL;
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isOnline,setIsOnline]=useState(navigator.onLine);
+
   async function getData() {
     setLoading(true);
     try {
@@ -17,11 +19,19 @@ const Home = () => {
     }
     setLoading(false);
   }
+  useEffect(()=>{
+    window.addEventListener('online',setIsOnline(true));
+    window.addEventListener('offline',setIsOnline(false));
+    return ()=>{
+      window.removeEventListener('online',setIsOnline(true));
+      window.removeEventListener('offline',setIsOnline(false));
+    }
+  })
   useEffect(() => {
     getData();
   }, []);
   return (
-    <div>
+    isOnline?(<div>
       {loading ? (
         <Spinner />
       ) : (
@@ -31,7 +41,7 @@ const Home = () => {
           ))}
         </div>
       )}
-    </div>
+    </div>):(<p>You are offline</p>)
   );
 };
 
