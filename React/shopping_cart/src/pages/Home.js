@@ -11,7 +11,6 @@ const Home = () => {
       const response = await fetch(url);
       const data = await response.json();
       setProducts(data);
-      console.log(data);
     } catch (error) {
       setProducts([]);
       console.log(error);

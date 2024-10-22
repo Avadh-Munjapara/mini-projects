@@ -5,11 +5,14 @@ const initialState ={
 }
 export const CartSlice = createSlice({
     name: 'cart',
-    initialState,
+    initialState,       
     reducers:{
-        addItem:(state,action)=>state.push(action.payload),
-        removeItem:(state,action)=> state.filter((item)=>item.id!==action.payload),
-    }
+        addItem:(state,action)=>{
+            state.items.push(action.payload)
+        },
+        removeItem:(state,action)=>{
+            state.items=state.items.filter((item)=>item.id!==action.payload)}},
+    
 })
 
 export default CartSlice.reducer;
