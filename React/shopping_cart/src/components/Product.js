@@ -8,17 +8,18 @@ const Product = ({ data }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   let description = data.description.split(" ").slice(0, 10).join(" ");
+  let title=`${data.title.split(" ").slice(0,3).join(" ").substring(0,14)}...`
   return (
-    <div className="flex flex-col">
-      <h2 className="flex font-Montserrat">{data.title}</h2>
+    <div className="flex flex-col gap-8 px-4 py-3 border-2 hover:scale-110 transition-all duration-200 items-center">
+      <h2 className="text-md font-semibold">{title}</h2>
       {
         location.pathname.includes('cart') ? 
         <></> :
-        <p>{description}</p>
+        <p className="text-[12px] text-center">{description}...</p>
       }
-      <img className="w-10" src={data.image} alt="" />
-      <div>
-        <p>${data.price}</p>
+      <img className="h-44" src={data.image} alt="" />
+      <div className="flex justify-between w-full">
+        <p className="text-[#16A34A] font-bold">${data.price}</p>
         {items.some((item) => item.id === data.id)? (
           <button onClick={() => dispatch(removeItem(data.id))}>
             {
@@ -31,7 +32,7 @@ const Product = ({ data }) => {
             onClick={() => {
               dispatch(addItem(data));
             }}
-          >
+         className="uppercase text-[12px] text-[#1f1452] px-2 py-1 rounded-3xl border-[1.5px] font-semibold border-[#1f1452]" >
             add to cart 
           </button>
         )}

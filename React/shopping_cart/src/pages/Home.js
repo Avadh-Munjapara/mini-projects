@@ -16,22 +16,17 @@ const Home = () => {
     } catch (error) {
       setProducts([]);
       console.log(error);
-    }
+    } 
     setLoading(false);
   }
   useEffect(()=>{
-    window.addEventListener('online',setIsOnline(true));
-    window.addEventListener('offline',setIsOnline(false));
-    return ()=>{
-      window.removeEventListener('online',setIsOnline(true));
-      window.removeEventListener('offline',setIsOnline(false));
-    }
-  })
+   setIsOnline(navigator.onLine);
+  },[navigator.onLine])
   useEffect(() => {
     getData();
   }, []);
   return (
-    isOnline?(<div>
+    navigator.onLine?(<div>
       {loading ? (
         <Spinner />
       ) : (

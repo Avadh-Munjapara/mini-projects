@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Cart from './pages/Cart';
 function App() {
   return (
-    <div>
+    <div className=' font-Montserrat'>
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>}></Route>
