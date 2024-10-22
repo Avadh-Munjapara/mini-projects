@@ -29,13 +29,13 @@ const Cart = () => {
 
           <div className="flex flex-col justify-between pt-16">
             <div className="">
-            <h2 className="uppercase text-[#16A34A]">Your Cart</h2>
+            <h2 className="uppercase text-[#16A34A] font-bol">Your Cart</h2>
           <h3 className="uppercase text-4xl">Summary</h3>
           <p className="font-semibold">Total items : {items.length}</p>
             </div>
          <div>
          <p>Total Amout : <span className="font-bold">${totalAmount}</span></p>
-         <button className="text-white bg-green-700 px-10 py-2">CheckOut Now</button>
+         <button className="text-white bg-green-700 px-10 py-2 rounded-lg">CheckOut Now</button>
          </div>
           
           </div>

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../redux/slices/CartSlice";
 import { useLocation } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
+import toast from "react-hot-toast";
 const Product = ({ data }) => {
   const items = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
@@ -26,25 +27,16 @@ const Product = ({ data }) => {
             <p className="text-[12px] ">{description}...</p>
             <div className="flex justify-between">
               <p className="text-[#16A34A] font-bold">${data.price}</p>
-              {items.some((item) => item.id === data.id) ? (
-                <button
-                  onClick={() => dispatch(removeItem(data.id))}
+              <button
+                  onClick={() => {
+                    dispatch(removeItem(data.id));
+                    toast.error("Item Removed from Cart");
+                  }}
                   className="uppercase text-[12px] bg-red-300 hover:bg-red-500 transition-all duration-500 hover:text-white
        text-[#1f1452] px-2 py-1 rounded-3xl border-[1.5px] font-semibold border-[#1f1452]"
                 >
                   <MdDelete className="w-4 h-4" />
                 </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    dispatch(addItem(data));
-                  }}
-                  className="uppercase text-[12px] hover:bg-[#374151] transition-all duration-500 hover:text-white
-       text-[#1f1452] px-2 py-1 rounded-3xl border-[1.5px] font-semibold border-[#1f1452]"
-                >
-                  add to cart
-                </button>
-              )}
             </div>
           </div>
         </div>
@@ -62,7 +54,10 @@ const Product = ({ data }) => {
             <p className="text-[#16A34A] font-bold">${data.price}</p>
             {items.some((item) => item.id === data.id) ? (
               <button
-                onClick={() => dispatch(removeItem(data.id))}
+              onClick={() => {
+                dispatch(removeItem(data.id));
+                toast.error("Item Removed from Cart");
+              }}
                 className="uppercase text-[12px] hover:bg-[#374151] transition-all duration-500 hover:text-white
           text-[#1f1452] px-2 py-1 rounded-3xl border-[1.5px] font-semibold border-[#1f1452]"
               >
@@ -70,9 +65,10 @@ const Product = ({ data }) => {
               </button>
             ) : (
               <button
-                onClick={() => {
-                  dispatch(addItem(data));
-                }}
+              onClick={() => {
+                dispatch(addItem(data));
+                toast.success("Item Added to Cart");
+              }}
                 className="uppercase text-[12px] hover:bg-[#374151] transition-all duration-500 hover:text-white
           text-[#1f1452] px-2 py-1 rounded-3xl border-[1.5px] font-semibold border-[#1f1452]"
               >
@@ -82,6 +78,7 @@ const Product = ({ data }) => {
           </div>
         </div>
       )}
+      
     </div>
   );
 };
